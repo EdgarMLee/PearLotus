@@ -1,5 +1,5 @@
 # Welcome to Pear & Lotus
-clone of Peach & Lily
+Clone of Peach & Lily
 
 ## This project was developed utilizing:
 
