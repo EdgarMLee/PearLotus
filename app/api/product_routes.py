@@ -39,3 +39,38 @@ def create_product():
     else:
         return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
+# Edit Product
+@product_routes.route("/<int:product_id>", methods=["PUT"])
+@login_required
+def edit_product(product_id):
+    form = ProductForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+    if form.validate_on_submit():
+        product = Product.query.get(product_id)
+        if product.owner_id == current_user.id:
+            product.name = form.name.data
+            product.category = form.category.data
+            product.price = form.price.data
+            product.description = form.description.data
+
+            db.session.commit()
+            return jsonify(product.to_dict()), 200
+        else:
+            return {"errors": "Unauthorized"}, 401
+    else:
+        return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+
+# Delete Product
+@product_routes.route("/<int:product_id>", methods=["DELETE"])
+@login_required
+def delete_product(product_id):
+    product = Product.query.filter(Product.id == product_id).first()
+    if product.owner_id == current_user.id:
+        db.session.delete(product)
+        db.session.commit()
+        return (
+            jsonify({"message": "Product successfully deleted", "status-code": 200}),
+            200,
+        )
+    else:
+        return {"errors": "Unauthorized"}, 401
