@@ -1,7 +1,6 @@
 from flask import Blueprint, request, jsonify
 from app.models import db, Product
 from ..forms.product_form import ProductForm
-from datetime import time
 from flask_login import current_user, login_required
 from .auth_routes import validation_errors_to_error_messages
 
@@ -39,6 +38,7 @@ def create_product():
     else:
         return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
+
 # Edit Product
 @product_routes.route("/<int:product_id>", methods=["PUT"])
 @login_required
@@ -59,6 +59,7 @@ def edit_product(product_id):
             return {"errors": "Unauthorized"}, 401
     else:
         return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+
 
 # Delete Product
 @product_routes.route("/<int:product_id>", methods=["DELETE"])
