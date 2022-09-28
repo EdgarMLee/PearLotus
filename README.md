@@ -26,7 +26,7 @@ Clone of Peach & Lily
 * Clone the repository in your terminal: ```git clone https://github.com/EdgarMLee/PearLotus.git```
 * cd into PearLotus folder and run ```pipenv install```
 * Open two terminal paths for both PearLotus and react-app.
-* Under PearLotus run ```pipenv shell`` then ```flask run```, for react-app run ```npm install```
+* Under PearLotus run ```pipenv shell``` then ```flask run```, for react-app run ```npm install```
 * Create a ```.env``` file under the root of the backend folder with the following contents:
 ```
 REACT_APP_BASE_URL=http://localhost:5000
@@ -36,6 +36,6 @@ REACT_APP_BASE_URL=http://localhost:5000
 flask db upgrade
 flask seed all
 ```
-* Now, run ```flask run``` under NotYelp and ```npm start``` under react-app
+* Now, run ```flask run``` under PearLotus and ```npm start``` under react-app
 
 ### Your local host should be running with full functionality now!
