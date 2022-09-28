@@ -7,5 +7,5 @@ class PurchaseForm(FlaskForm):
   total = FloatField("total", validators=[DataRequired()])
   userId = IntegerField("userId", validators=[DataRequired()])
   productId = IntegerField("productId", validators=[DataRequired()])
-  createdAt = DateTimeField("createdAt", validators=[DataRequired()])
+  # createdAt = DateTimeField("createdAt", validators=[DataRequired()])
   submit = SubmitField("submit")
