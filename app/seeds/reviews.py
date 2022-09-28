@@ -74,4 +74,52 @@ def seed_reviews():
     Review(
       userId=2, productId=24, stars=3, description="Not bad, but definitely a bit pricy for what they have!"
     ),
+    Review(
+      userId=3, productId=25, stars=5, description="Very good especially for a 60 count. Can finally have cheese & wine without worrying about acne :)"
+    ),
+    Review(
+      userId=3, productId=26, stars=2, description="Did not like this one as much, couldve been better."
+    ),
+    Review(
+      userId=4, productId=27, stars=5, description="I am definitely gona stay Sexy 4 Eva with this product!"
+    ),
+    Review(
+      userId=4, productId=28, stars=3, description="This one was okay, might be my last time buying this product tho, kinda dank."
+    ),
+    Review(
+      userId=5, productId=29, stars=5, description="This oil cleanser was the reason I can look so good in Dawn of us :)"
+    ),
+    Review(
+      userId=5, productId=30, stars=4, description="Hydrating gel cleanser was pretty smooth and clean, can feel the dopamine from using it."
+    ),
+    Review(
+      userId=6, productId=31, stars=5, description="This product is why I can look so amazing in Life Goes On, go check it out :)"
+    ),
+    Review(
+      userId=6, productId=32, stars=4, description="Using this serum was definitely NOT a bad decision!"
+    ),
+    Review(
+      userId=7, productId=33, stars=5, description="This wash off mask makes both the left and right side of my face feel amazing!"
+    ),
+    Review(
+      userId=7, productId=34, stars=4, description="Such a good texture and sensation on my skin...*MIC DROP*"
+    ),
+    Review(
+      userId=8, productId=35, stars=5, description="This mask made my skin gleaming and smooth! What are you waiting for?"
+    ),
+    Review(
+      userId=8, productId=36, stars=2, description="Maybe I got used to it, but I don't like this product anymore...Doesn't feel the same on my skin :("
+    ),
+    Review(
+      userId=9, productId=37, stars=5, description="This moisturizer was so good, it made me feel sexy"
+    ),
+    Review(
+      userId=9, productId=38, stars=2, description="Not sure about this product, everything sucks..."
+    ),
+    Review(
+      userId=10, productId=39, stars=5, description="These are so fancy I love it! Definitely made me feel special!! :)"
+    ),
+    Review(
+      userId=10, productId=40, stars=2, description="After using this product I have to celebrate because of how amazing this toner is!"
+    ),
   ]
