@@ -2,7 +2,7 @@ const GET_ALL = "products/GET_ALL";
 const CREATE = "products/CREATE";
 const UPDATE = "products/UPDATE";
 const DELETE = "products/DELETE";
-const ADD_ITEM_TO_PRODUCT = "products/ADD_ITEM_TO_BUSINESS";
+const ADD_ITEM_TO_PRODUCT = "products/ADD_ITEM_TO_PRODUCT";
 
 const getAll = (products) => ({
   type: GET_ALL,
