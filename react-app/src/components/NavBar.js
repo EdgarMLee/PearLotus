@@ -4,38 +4,48 @@ import { NavLink } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
 import LoginFormModal from "./auth/LoginFormModal";
 import SignUpFormModal from "./auth/SignupFormModal";
-// import CreateProductModal from "./Business/CreateProduct";
+import CreateProductModal from "./Product/CreateProduct"
 import ProfileButton from "./ProfileButton/ProfileButton";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./NavBar.css";
 
-const NavBar = () => {
-  const dispatch = useDispatch();
+const NavBar = ({ loaded }) => {
   const sessionUser = useSelector((state) => state.session.user);
   let currentUser;
   const sessionUser2 = useSelector((state) => state.session.user);
-  const [search, setSearch] = useState("");
-  const history = useHistory();
   let sessionLinks;
+  if (sessionUser) {
+    sessionLinks = <ProfileButton user={sessionUser} />;
+  } else {
+    sessionLinks = (
+      <div className="session-links flex center">
+        <div className="loginModalBut"><LoginFormModal /></div>
+        <div className="signupModalBut"><SignUpFormModal /></div>
+      </div>
+    );
+  }
+
+  if (sessionUser2) currentUser = true;
+  else currentUser = false;
+
   return (
     <nav>
       <ul>
         <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
+        <NavLink
+            className="home-button"
+            to="/"
+            exact={true}
+            activeClassName="active"
+          >
             Home
           </NavLink>
         </li>
-        <li>
-          <NavLink to='/login' exact={true} activeClassName='active'>
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
-          </NavLink>
-        </li>
+        <div className="flex pr20">
+        {currentUser && <CreateProductModal />}
+          {loaded && sessionLinks}
+        </div>
         <li>
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
