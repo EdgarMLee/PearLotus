@@ -123,3 +123,11 @@ def seed_reviews():
       userId=10, productId=40, stars=2, description="After using this product I have to celebrate because of how amazing this toner is!"
     ),
   ]
+
+  for review in reviews:
+    db.session.add(review)
+  db.session.commit()
+
+def undo_reviews():
+  db.session.execute('TRUNCATE businesses RESTART IDENTITY CASCADE;')
+  db.session.commit()
