@@ -1,13 +1,11 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
 import LoginFormModal from "./auth/LoginFormModal";
 import SignUpFormModal from "./auth/SignupFormModal";
 import CreateProductModal from "./Product/CreateProduct"
 import ProfileButton from "./ProfileButton/ProfileButton";
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
 import "./NavBar.css";
 
 const NavBar = ({ loaded }) => {
