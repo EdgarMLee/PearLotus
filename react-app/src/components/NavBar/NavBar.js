@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import LogoutButton from "./auth/LogoutButton";
-import LoginFormModal from "./auth/LoginFormModal";
-import SignUpFormModal from "./auth/SignupFormModal";
-import CreateProductModal from "./Product/CreateProduct"
-import ProfileButton from "./ProfileButton/ProfileButton";
+import LogoutButton from "../auth/LogoutButton";
+import LoginFormModal from "../auth/LoginFormModal";
+import SignUpFormModal from "../auth/SignupFormModal";
+import CreateProductModal from "../Product/CreateProduct"
+import ProfileButton from "../ProfileButton/ProfileButton";
 import "./NavBar.css";
 
 const NavBar = ({ loaded }) => {
@@ -14,7 +14,7 @@ const NavBar = ({ loaded }) => {
   const sessionUser2 = useSelector((state) => state.session.user);
   let sessionLinks;
   if (sessionUser) {
-    sessionLinks = <ProfileButton user={sessionUser} />;
+    sessionLinks = (<ProfileButton user={sessionUser} />)
   } else {
     sessionLinks = (
       <div className="session-links flex center">
