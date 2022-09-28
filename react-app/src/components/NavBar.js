@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
 import LoginFormModal from "./auth/LoginFormModal";
 import SignUpFormModal from "./auth/SignupFormModal";
-import CreateBusinessModal from "./Business/CreateBusiness";
-import ProfileButton from "./ProfileButton";
+// import CreateProductModal from "./Business/CreateProduct";
+import ProfileButton from "./ProfileButton/ProfileButton";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./NavBar.css";
@@ -50,3 +50,4 @@ const NavBar = () => {
 }
 
 export default NavBar;
+// WILL NEED TO IMPLEMENT PROFILE BUTTON TO SHOW LOGIN/SIGNUP IF NOT USER LOGGED IN
