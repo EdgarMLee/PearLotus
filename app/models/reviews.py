@@ -1,6 +1,5 @@
-from .db import db
 from sqlalchemy import func
-
+from .db import db
 
 class Review(db.Model):
     __tablename__ = "reviews"
@@ -13,10 +12,9 @@ class Review(db.Model):
     created_at = db.Column("created_at", db.DateTime, default=func.now())
     updated_at = db.Column("updated_at", db.DateTime, default=func.now(), onupdate=func.now())
 
-
-    product = db.relationship("Product", back_populates='reviews')
-    user = db.relationship('User', back_populates='reviews')
-    purchase = db.relationship("Purchase", back_populates="reviews")
+    product = db.relationship("Product", back_populates='reviews', foreign_keys=[productId])
+    user = db.relationship('User', back_populates='reviews', foreign_keys=[userId])
+    # purchase = db.relationship("Purchase", back_populates="reviews")
 
     def to_dict(self):
         return {

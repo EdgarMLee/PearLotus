@@ -1,8 +1,8 @@
 from sqlalchemy import func
 from .db import db
 
-class Purchase(db.Model):
-  __tablename__ = "purchases"
+class Image(db.Model):
+  __tablename__ = "images"
 
   id = db.Column("id", db.Integer, primary_key=True)
   quantity = db.Column("quantity", db.Integer, nullable=False)
@@ -11,9 +11,11 @@ class Purchase(db.Model):
   created_at = db.Column("created_at", db.DateTime, default=func.now())
   updated_at = db.Column("updated_at", db.DateTime, default=func.now(), onupdate=func.now())
 
-  product = db.relationship("Product", back_populates='purchases')
-  user = db.relationship("User", back_populates="purchases")
-  cart = db.relationship("Cart", back_populates="purchases")
+  product_id = db.Column("product_id", db.Integer, db.ForeignKey("products.id"))
+
+  product = db.relationship("Product", back_populates='images')
+  user = db.relationship("User", back_populates="images")
+  cart = db.relationship("Cart", back_populates="images")
 
   def to_dict(self):
     return {

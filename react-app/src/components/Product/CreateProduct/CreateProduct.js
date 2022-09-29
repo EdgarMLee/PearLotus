@@ -5,7 +5,7 @@ import { createProduct } from "../../../store/product";
 
 function CreateProductForm({ closeModal }) {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.session.user);
+  const user = useSelector((state) => state.session.user);
   const history = useHistory();
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
@@ -23,16 +23,16 @@ function CreateProductForm({ closeModal }) {
       name,
       category,
       price,
-      description
+      description,
     };
     const newProduct = await dispatch(createProduct(productInfo));
     if (newProduct && newProduct.errors) {
       setErrors(newProduct.errors);
     } else if (newProduct && !newProduct.errors) {
       closeModal();
-      history.push(`/products/${newProduct.id}`)
+      history.push(`/products/${newProduct.id}`);
     }
-  }
+  };
   useEffect(() => {
     const errors = [];
     if (name.length > 50) {
@@ -41,10 +41,47 @@ function CreateProductForm({ closeModal }) {
     if (name.length < 5) {
       errors.push("name: Name must be at least 5 characters");
     }
-    if (category !== "") {
-      
+    if (price > 500) {
+      errors.push("price: Price is too high!");
     }
-  })
+    if (price <= 0) {
+      errors.push("price: Price is too low!");
+    }
+    if (description.length > 255) {
+      errors.push("description: Description is too long!");
+    }
+    setErrors(errors);
+  }, [name, price, description]);
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className="createProductBox">
+        <div className="createProductTitle">Create Your Product!</div>
+        {isSubmitted &&
+          errors.map((error, ind) => (
+            <div className="createErrors">
+              <div key={ind} className="createError">
+                {error.split(": ")[1]}
+              </div>
+            </div>
+          ))}
+          <div className="input-container">
+            <div className="inputInfo">
+            <input
+              type="text"
+              value={name}
+              className="nameInput"
+              placeholder=" "
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+            <label htmlFor="name">Name</label>
+            
+            </div>
+          </div>
+      </div>
+    </form>
+  );
 }
 
-export default CreateProductForm
+export default CreateProductForm;

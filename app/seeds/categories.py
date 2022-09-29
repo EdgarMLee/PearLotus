@@ -16,3 +16,4 @@ def seed_categories():
 def undo_categories():
   db.session.execute('TRUNCATE businesses RESTART IDENTITY CASCADE;')
   db.session.commit()
+
