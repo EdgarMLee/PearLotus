@@ -29,6 +29,7 @@ const NavBar = ({ loaded }) => {
 
   return (
     <nav>
+      <div className="salmon-top"></div>
       <div className="navbar-container">
         <div className="empty-div"></div>
         <div className="home-button">
@@ -38,12 +39,16 @@ const NavBar = ({ loaded }) => {
             className="home-button"
             activeClassName="active"
           >
-            Home
+            𝖯𝖤𝖠𝖱 & 𝖫𝖮𝖳𝖴𝖲
           </NavLink>
         </div>
-        <div className="flex pr20">
+        <div className="navprofile-button">
+          <div className="createProduct">
           {currentUser && <CreateProductModal />}
+          </div>
+          <div>
           {loaded && <ProfileButton user={sessionUser2} />}
+          </div>
         </div>
         {/* <li>
           <NavLink to='/users' exact={true} activeClassName='active'>
@@ -51,6 +56,7 @@ const NavBar = ({ loaded }) => {
           </NavLink>
         </li> */}
       </div>
+      <div className="divLine"/>
     </nav>
   );
 };

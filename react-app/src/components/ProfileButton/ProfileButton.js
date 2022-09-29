@@ -93,7 +93,7 @@ function ProfileButton() {
                   <svg width={24} height={24} className="logout-icon">
                     <path d="M15 2a1 1 0 110 2H4v16h11a1 1 0 110 2H3a1 1 0 01-1-1V3a1 1 0 011-1h12zm1.09 4.72a1 1 0 011.41 0L22 11.3a1 1 0 010 1.4l-4.59 4.58a1 1 0 01-1.41.02 1 1 0 010-1.42L18.87 13H7a1 1 0 110-2h11.87l-2.78-2.86a1 1 0 010-1.42z" />
                   </svg>
-                  Log Out
+                  LOG OUT
                 </div>
               </div>
             )}
@@ -105,7 +105,7 @@ function ProfileButton() {
                       className="login-button button"
                       onClick={() => setShowModal(true)}
                     >
-                      <div className="pr15 pl15 pb10 pt10">Log In</div>
+                      <div className="pr15 pl15 pb10 pt10">LOG IN</div>
                     </button>
                   </div>
                   <div className="divLine"></div>
@@ -114,7 +114,7 @@ function ProfileButton() {
                       className="signup-button button ml10"
                       onClick={() => setShowModal2(true)}
                     >
-                      <div className="pr15 pl15 pb10 pt10">Sign Up</div>
+                      <div className="pr15 pl15 pb10 pt10">SIGN UP</div>
                     </button>
                   </div>
                 </div>
