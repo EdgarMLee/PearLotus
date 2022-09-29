@@ -7,15 +7,16 @@ class Image(db.Model):
   id = db.Column("id", db.Integer, primary_key=True)
   quantity = db.Column("quantity", db.Integer, nullable=False)
   total = db.Column("total", db.Float, nullable=False)
+  userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+  productId = db.Column(db.Integer, db.ForeignKey('products.id'), nullable=False)
+
 
   created_at = db.Column("created_at", db.DateTime, default=func.now())
   updated_at = db.Column("updated_at", db.DateTime, default=func.now(), onupdate=func.now())
 
-  product_id = db.Column("product_id", db.Integer, db.ForeignKey("products.id"))
-
-  product = db.relationship("Product", back_populates='images')
-  user = db.relationship("User", back_populates="images")
-  cart = db.relationship("Cart", back_populates="images")
+  product = db.relationship("Product", back_populates='images', foreign_keys=[productId])
+  user = db.relationship("User", back_populates="images", foreign_keys=[userId])
+  # cart = db.relationship("Cart", back_populates="images")
 
   def to_dict(self):
     return {
