@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import LoginFormModal from "../auth/LoginFormModal";
 import SignUpFormModal from "../auth/SignupFormModal";
-import CreateProductModal from "../Product/CreateProduct"
+import CreateProductModal from "../Product/CreateProduct";
 import ProfileButton from "../ProfileButton/ProfileButton";
 import "./NavBar.css";
 
@@ -30,10 +30,9 @@ const NavBar = ({ loaded }) => {
   return (
     <nav>
       <div className="navbar-container">
-        <div className="empty-div">
-        </div>
+        <div className="empty-div"></div>
         <div className="home-button">
-        <NavLink
+          <NavLink
             to="/"
             exact={true}
             className="home-button"
@@ -43,8 +42,8 @@ const NavBar = ({ loaded }) => {
           </NavLink>
         </div>
         <div className="flex pr20">
-        {currentUser && <CreateProductModal />}
-          {loaded && <ProfileButton user={sessionUser2}/>}
+          {currentUser && <CreateProductModal />}
+          {loaded && <ProfileButton user={sessionUser2} />}
         </div>
         {/* <li>
           <NavLink to='/users' exact={true} activeClassName='active'>
@@ -54,7 +53,7 @@ const NavBar = ({ loaded }) => {
       </div>
     </nav>
   );
-}
+};
 
 export default NavBar;
 // WILL NEED TO IMPLEMENT PROFILE BUTTON TO SHOW LOGIN/SIGNUP IF NOT USER LOGGED IN
