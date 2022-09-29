@@ -8,6 +8,11 @@ from flask_login import LoginManager
 from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
+from .api.product_routes import product_routes
+from .api.review_routes import review_routes
+# from .api.purchase_routes import purchase_routes
+# from .api.cart_routes import cart_routes
+# from .api.image_routes import image_routes
 
 from .seeds import seed_commands
 
@@ -31,12 +36,13 @@ app.cli.add_command(seed_commands)
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
+app.register_blueprint(product_routes, url_prefix='/api/product')
+app.register_blueprint(review_routes, url_prefix='/api/review')
 db.init_app(app)
 Migrate(app, db)
 
 # Application Security
 CORS(app)
-
 
 # Since we are deploying with Docker and Flask,
 # we won't be using a buildpack when we deploy to Heroku.
