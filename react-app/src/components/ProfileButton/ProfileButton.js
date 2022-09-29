@@ -54,7 +54,7 @@ function ProfileButton() {
     dispatch(sessionActions.logout());
     history.push("/");
   };
-  console.log("showModal******", showModal);
+  // console.log("showModal******", showModal);
   return (
     <>
       <div className="fixes profilebutton by existing">
@@ -99,22 +99,25 @@ function ProfileButton() {
             )}
             {!sessionUser && (
               <>
-                <div className="loginModalBut">
+              <div className='profile-dropdown'>
+                <div className="logoutUser">
                   <button
                     className="login-button button"
                     onClick={() => setShowModal(true)}
-                  >
+                    >
                     <div className="pr15 pl15 pb10 pt10">Log In</div>
                   </button>
                 </div>
-                <div className="signupModalBut">
+                <div className="divLine"></div>
+                <div className="logoutUser">
                   <button
                     className="signup-button button ml10"
                     onClick={() => setShowModal2(true)}
-                  >
+                    >
                     <div className="pr15 pl15 pb10 pt10">Sign Up</div>
                   </button>
                 </div>
+                    </div>
               </>
             )}
           </div>
