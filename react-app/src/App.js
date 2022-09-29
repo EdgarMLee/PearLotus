@@ -34,9 +34,8 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route> */}
-        <Route path="/products">
-          <ProductsPage />
-        </Route>
+        {/* <Route path="/products">
+        </Route> */}
         <Route path="/products/:productId">
           <ProductDetail />
         </Route>
@@ -48,6 +47,7 @@ function App() {
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
+        <ProductsPage />
         </Route>
       </Switch>
     </BrowserRouter>

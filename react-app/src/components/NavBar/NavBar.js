@@ -10,19 +10,7 @@ import "./NavBar.css";
 
 const NavBar = ({ loaded }) => {
   let currentUser;
-  // const sessionUser = useSelector((state) => state.session.user);
   const sessionUser2 = useSelector((state) => state.session.user);
-  // let sessionLinks;
-  // if (sessionUser) {
-  //   sessionLinks = (<ProfileButton user={sessionUser} />)
-  // } else {
-  //   sessionLinks = (
-  //     <div className="session-links flex center">
-  //       <div className="loginModalBut"><LoginFormModal /></div>
-  //       <div className="signupModalBut"><SignUpFormModal /></div>
-  //     </div>
-  //   );
-  // }
 
   if (sessionUser2) currentUser = true;
   else currentUser = false;
@@ -50,11 +38,6 @@ const NavBar = ({ loaded }) => {
           {loaded && <ProfileButton user={sessionUser2} />}
           </div>
         </div>
-        {/* <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
-          </NavLink>
-        </li> */}
       </div>
       <div className="divLine"/>
     </nav>

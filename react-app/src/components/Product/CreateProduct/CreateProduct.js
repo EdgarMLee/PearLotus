@@ -76,10 +76,34 @@ function CreateProductForm({ closeModal }) {
               required
             />
             <label htmlFor="name">Name</label>
-            
+            </div>
+            <div className="inputInfo">
+            <input
+              type="integer"
+              value={price}
+              className="priceInput"
+              placeholder=" "
+              onChange={(e) => setPrice(e.target.value)}
+              required
+              />
+            <label htmlFor="price">Price</label>
+              </div>
+              <div className="inputInfo desc-input">
+            <textarea
+              type="text"
+              value={description}
+              className="descriptionInput"
+              placeholder=" "
+              onChange={(e) => setDescription(e.target.value)}
+              required
+              />
+            <label htmlFor="description">Description</label>
+              </div>
+              <button name='submit' type='submit' className='submitButton'>
+                Create Product
+              </button>
             </div>
           </div>
-      </div>
     </form>
   );
 }
