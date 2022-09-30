@@ -33,6 +33,6 @@ def get_image():
 # Get Image by User
 @image_routes.route("")
 @login_required
-def get_image():
+def get_imageUser():
   images = Image.query.filter(Image.productId == current_user.id).all()
   return { "images": [image.to_dict() for image in images] }

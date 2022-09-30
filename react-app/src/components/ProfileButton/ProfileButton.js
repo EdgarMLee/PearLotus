@@ -3,12 +3,34 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import LoginFormModal from "../auth/LoginFormModal";
+import SignUpFormModal from "../auth/SignupFormModal";
+import { useSelector } from "react-redux";
 import "./ProfileButton.css";
 
-function ProfileButton({ user }) {
+import { Modal } from "../../context/Modal";
+import LoginForm from "../../components/auth/LoginFormModal/LoginForm";
+import SignUpForm from "../../components/auth/SignupFormModal/SignUpForm";
+// import "./LoginForm.css";
+
+function ProfileButton() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
+  const sessionUser = useSelector((state) => state.session.user);
+  // let currentUser;
+  // if (sessionUser) {
+  //   currentUser = true;
+  // } else currentUser = false;
+
+  const [showModal, setShowModal] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
+  const closeModal = () => {
+    setShowModal(false);
+  };
+  const closeModal2 = () => {
+    setShowModal2(false);
+  };
 
   const openMenu = () => {
     if (showMenu) return;
@@ -32,7 +54,7 @@ function ProfileButton({ user }) {
     dispatch(sessionActions.logout());
     history.push("/");
   };
-
+  // console.log("showModal******", showModal);
   return (
     <>
       <div className="fixes profilebutton by existing">
@@ -59,22 +81,56 @@ function ProfileButton({ user }) {
         </div>
         {showMenu && (
           <div className="showMenu">
-            <div className="profile-dropdown">
-              <div className="userProfile">User: {user.username}</div>
-              <div className="divLine"></div>
-              {/* <Link to='/view-your-spots' className='allSpotButton'>View My Spots</Link> */}
-              <Link to="/my-reviews" className="my-reviews">
-                My Reviews
-              </Link>
-              <div className="divLine"></div>
-              <div className="logoutUser" onClick={logout}>
-                <svg width={24} height={24} className="logout-icon">
-                  <path d="M15 2a1 1 0 110 2H4v16h11a1 1 0 110 2H3a1 1 0 01-1-1V3a1 1 0 011-1h12zm1.09 4.72a1 1 0 011.41 0L22 11.3a1 1 0 010 1.4l-4.59 4.58a1 1 0 01-1.41.02 1 1 0 010-1.42L18.87 13H7a1 1 0 110-2h11.87l-2.78-2.86a1 1 0 010-1.42z" />
-                </svg>
-                Log Out
+            {sessionUser && (
+              <div className="profile-dropdown">
+                <div className="userProfile">User: {sessionUser.username}</div>
+                <div className="divLine"></div>
+                <Link to="/my-reviews" className="my-reviews">
+                  My Reviews
+                </Link>
+                <div className="divLine"></div>
+                <div className="logoutUser" onClick={logout}>
+                  <svg width={24} height={24} className="logout-icon">
+                    <path d="M15 2a1 1 0 110 2H4v16h11a1 1 0 110 2H3a1 1 0 01-1-1V3a1 1 0 011-1h12zm1.09 4.72a1 1 0 011.41 0L22 11.3a1 1 0 010 1.4l-4.59 4.58a1 1 0 01-1.41.02 1 1 0 010-1.42L18.87 13H7a1 1 0 110-2h11.87l-2.78-2.86a1 1 0 010-1.42z" />
+                  </svg>
+                  LOG OUT
+                </div>
               </div>
-            </div>
+            )}
+            {!sessionUser && (
+              <>
+                <div className="profile-dropdown">
+                  <div className="logoutUser">
+                    <button
+                      className="login-button button"
+                      onClick={() => setShowModal(true)}
+                    >
+                      <div className="pr15 pl15 pb10 pt10">LOG IN</div>
+                    </button>
+                  </div>
+                  <div className="divLine"></div>
+                  <div className="logoutUser">
+                    <button
+                      className="signup-button button ml10"
+                      onClick={() => setShowModal2(true)}
+                    >
+                      <div className="pr15 pl15 pb10 pt10">SIGN UP</div>
+                    </button>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
+        )}
+        {showModal && (
+          <Modal onClose={() => setShowModal(false)}>
+            <LoginForm closeModal={closeModal} />
+          </Modal>
+        )}
+        {showModal2 && (
+          <Modal onClose={() => setShowModal2(false)}>
+            <SignUpForm closeModal2={closeModal2} />
+          </Modal>
         )}
       </div>
     </>

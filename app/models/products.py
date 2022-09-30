@@ -9,16 +9,16 @@ class Product(db.Model):
   category = db.Column("category", db.String, nullable=False)
   price = db.Column("price", db.Integer, nullable=False)
   description = db.Column("description", db.String, nullable=False)
+  owner_id = db.Column("owner_id", db.Integer, db.ForeignKey("users.id"))
 
   created_at = db.Column("created_at", db.DateTime, default=func.now())
   updated_at = db.Column("updated_at", db.DateTime, default=func.now(), onupdate=func.now())
 
-  owner_id = db.Column("owner_id", db.Integer, db.ForeignKey("users.id"))
 
-  owner = db.relationship("User")
+  user = db.relationship('User', back_populates='product', foreign_keys=[owner_id])
   reviews = db.relationship("Review", back_populates="product", cascade="all, delete")
   images = db.relationship("Image", back_populates="product", cascade="all, delete")
-  carts = db.relationship("Cart", back_populates="product", cascade="all, delete")
+  # carts = db.relationship("Cart", back_populates="product", cascade="all, delete")
 
   def to_dict(self):
     return {

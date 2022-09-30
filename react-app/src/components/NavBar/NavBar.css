@@ -1,0 +1,42 @@
+.salmon-top {
+  height: 40px;
+  width: 115%;
+  background-color: salmon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -10%;
+  margin-top: -0.4%;
+  /* border: 1px red solid; */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5%;
+  margin-top: 0.5%;
+  /* position: relative; */
+  /* border: 1px red solid; */
+}
+
+.navprofile-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 175px;
+  /* border: 1px red solid; */
+}
+
+.createProduct {
+  margin-right: 20px;
+}
+
+.home-button {
+  font-size: 38px;
+  width: 400px;
+  margin-left: 13%;
+  text-decoration: none;
+  color: rgb(90, 0, 0)
+  /* border: 1px solid red; */
+}
