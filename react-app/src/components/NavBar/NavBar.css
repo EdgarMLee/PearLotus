@@ -40,3 +40,8 @@
   color: rgb(90, 0, 0)
   /* border: 1px solid red; */
 }
+
+.divLineNav {
+  border-top: 1px solid rgb(200, 200, 200);
+  margin-bottom: 10px;
+}

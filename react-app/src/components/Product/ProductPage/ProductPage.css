@@ -1,8 +1,11 @@
 .splash-container {
-  /* border: 1px solid red; */
-  /* display: flex; */
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .page-container {
-  /* border: 1px solid red; */
+  align-items: center;
+  position: relative;
+  max-width: 100vw;
 }
+/* TODO: MAKE FLEX WRAP */

@@ -1,0 +1,9 @@
+.productdetail-container {
+  display: flex;
+  
+}
+
+.prod-detailpic {
+  width:45%;
+  border: 1px red solid;
+}

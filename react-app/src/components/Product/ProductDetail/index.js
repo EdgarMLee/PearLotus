@@ -45,14 +45,25 @@ function ProductDetail() {
   return (
     isLoaded && (
       <div className="productdetail-container">
-        <div>
-          <img className="prod-detail-image" src={product.image["url"]}/>
+        Product Details Page
+        <div className="prod-detailpic">
+          <img className="prod-detailpic" src={product.image["url"]}/>
         </div>
         <div className="divider">
         <div className="product-name">{product.name}</div>
         <div className="product-short">{product.shortdescript}</div>
         <div className="product-description">{product.description}</div>
         </div>
+        {currentUser && (
+                  <div className="EditDeleteBusiness flex">
+                    <button
+                      onClick={handleDelete}
+                      className="deleteButton clear-button"
+                    >
+                      Delete Product
+                    </button>
+                  </div>
+                )}
       </div>
     )
   );

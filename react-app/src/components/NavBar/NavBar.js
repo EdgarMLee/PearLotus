@@ -39,7 +39,7 @@ const NavBar = ({ loaded }) => {
           </div>
         </div>
       </div>
-      <div className="divLine"/>
+      <div className="divLineNav"/>
     </nav>
   );
 };
