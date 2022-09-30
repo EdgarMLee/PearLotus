@@ -90,21 +90,7 @@ function CreateProductForm({ closeModal }) {
               required
               />
             <label htmlFor="price">Price</label>
-            <select
-                    htmlFor='category'
-                    name='category'
-                    className='product-form-select'
-                    onChange={(e) => setCategory(e.target.value)}
-                  >
-                    <option disabled selected value={category}>-- Select a Category --</option>
-                    {categories?.map((category) => {
-                      return (
-                        <option
-                          value={category.name}
-                          className='product-form-options'>{category.display_name}</option>
-                      )
-                    })}
-                  </select>
+              # CATEGORY GOES IN HERE
               </div>
               <div className="inputInfo desc-input">
             <textarea

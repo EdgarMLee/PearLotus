@@ -8,7 +8,8 @@ function ProductPage() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   const products = useSelector((state) => Object.values(state.products));
-
+  // const images = useSelector((state) => Object.values(state.images));
+  
   useEffect(() => {
     dispatch(getProduct()).then(() => setIsLoaded(true));
   }, [dispatch]);

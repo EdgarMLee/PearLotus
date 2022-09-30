@@ -45,7 +45,7 @@ function ProductDetail() {
   return (
     isLoaded && (
       <div className="productdetail-container">
-        <div>{image.productId}</div>
+        <div>Product Details page</div>
       </div>
     )
   );

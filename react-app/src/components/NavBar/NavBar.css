@@ -1,7 +1,7 @@
 .salmon-top {
   height: 40px;
   width: 115%;
-  background-color: salmon;
+  background-color: rgb(255, 100, 82);
   display: flex;
   justify-content: center;
   align-items: center;
