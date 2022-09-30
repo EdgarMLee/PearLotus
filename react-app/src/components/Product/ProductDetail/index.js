@@ -11,7 +11,7 @@ function ProductDetail() {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
   const product = useSelector((state) => state.products[productId]);
-  const image = useSelector((state) => state.images[productId]);
+  // const image = useSelector((state) => state.images[productId]);
   const reviews = useSelector((state) => state.reviews);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -45,7 +45,14 @@ function ProductDetail() {
   return (
     isLoaded && (
       <div className="productdetail-container">
-        <div>Product Details page</div>
+        <div>
+          <img className="prod-detail-image" src={product.image["url"]}/>
+        </div>
+        <div className="divider">
+        <div className="product-name">{product.name}</div>
+        <div className="product-short">{product.shortdescript}</div>
+        <div className="product-description">{product.description}</div>
+        </div>
       </div>
     )
   );

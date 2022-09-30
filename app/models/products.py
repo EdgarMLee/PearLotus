@@ -8,6 +8,7 @@ class Product(db.Model):
   name = db.Column("name", db.String, nullable=False)
   category = db.Column("category", db.String, nullable=False)
   price = db.Column("price", db.Integer, nullable=False)
+  shortdescript = db.Column("shortdescript", db.String, nullable=False)
   description = db.Column("description", db.String, nullable=False)
   owner_id = db.Column("owner_id", db.Integer, db.ForeignKey("users.id"))
 
@@ -27,6 +28,7 @@ class Product(db.Model):
       "name": self.name,
       "category": self.category,
       "price": self.price,
+      "shortdescript": self.shortdescript,
       "description": self.description,
       "created_at": self.created_at,
       "updated_at": self.updated_at,

@@ -26,8 +26,8 @@ function ProductCard({ product, image }) {
               {product.name}
             </Link>
         </div>
-        <div className="product-description">
-          {product.description}
+        <div className="product-shortdescript">
+          {product.shortdescript}
         </div>
         <div className="product-price">
           ${product.price}

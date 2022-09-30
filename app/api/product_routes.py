@@ -29,6 +29,8 @@ def get_product(id):
     if product is not None:
         productId = product.to_dict()["id"]
         image = db.session.query(Image).filter(Image.productId == productId).first()
+        # image = db.session.query(Image).filter(Image.productId == productId).[1]
+        # ^ Input that once you added seeder data to image for 2nd image
         productbyId = product.to_dict()
         productbyId["image"] = image.to_dict()
         productarr.append(productbyId)
@@ -48,6 +50,7 @@ def create_product():
             name=form.name.data,
             category=form.category.data,
             price=form.price.data,
+            shortdescript=form.shortdescript.data,
             description=form.description.data,
         )
         db.session.add(new_product)
@@ -69,6 +72,7 @@ def edit_product(product_id):
             product.name = form.name.data
             product.category = form.category.data
             product.price = form.price.data
+            product.shortdescript = form.shortdescript.data
             product.description = form.description.data
 
             db.session.commit()

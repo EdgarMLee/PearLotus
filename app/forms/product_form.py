@@ -7,6 +7,7 @@ class ProductForm(FlaskForm):
   name = StringField("name", validators=[DataRequired()])
   category = SelectField("category", validators=[DataRequired()])
   price = FloatField("price", validators=[DataRequired(), NumberRange(1, 100)])
+  shortdescript = StringField("shortdescript", validators=[DataRequired(), Length(1, 100)])
   description = StringField("description", validators=[DataRequired(), Length(1, 255)])
   # createdAt = DateTimeField("createdAt", validators=[DataRequired()])
   # updatedAt = DateTimeField("updatedAt", validators=[DataRequired()])
