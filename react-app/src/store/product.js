@@ -30,7 +30,7 @@ const deleteProduct = (productId) => ({
 // });
 
 export const getProduct = () => async (dispatch) => {
-  const res = await fetch("/api/products/");
+  const res = await fetch("/api/products");
   if (res.ok) {
     const products = await res.json();
     dispatch(getAll(products));
@@ -39,7 +39,7 @@ export const getProduct = () => async (dispatch) => {
 };
 
 export const createProduct = (product) => async (dispatch) => {
-  const res = await fetch("/api/products/", {
+  const res = await fetch("/api/products", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

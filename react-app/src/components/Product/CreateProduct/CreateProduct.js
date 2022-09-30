@@ -23,7 +23,7 @@ function CreateProductForm({ closeModal }) {
       name,
       category,
       price,
-      description,
+      description
     };
     const newProduct = await dispatch(createProduct(productInfo));
     if (newProduct && newProduct.errors) {
