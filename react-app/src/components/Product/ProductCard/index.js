@@ -4,8 +4,11 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
+
 function ProductCard({ product }) {
-  const sessionUser = useSelector(state => state.session.user);
+  const { imageId } = useParams
+  // const sessionUser = useSelector(state => state.session.user);
+  const image = useSelector(state => state.images[imageId])
   return (
     <div className="card-container">
       <div className="product-card" to={`/products/${product.id}`}>
@@ -13,6 +16,7 @@ function ProductCard({ product }) {
           <Link
             className="product-card-image"
             to={`/products/${product.id}`}>
+              {/* {image.id} */}
               Insert Image Here
             </Link>
         </div>
@@ -27,7 +31,7 @@ function ProductCard({ product }) {
           {product.description}
         </div>
         <div className="product-price">
-          {product.price}
+          ${product.price}
         </div>
       </div>
     </div>

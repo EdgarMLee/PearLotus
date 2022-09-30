@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from app.models import db, Product
+from app.models import db, Product, Category
 from ..forms.product_form import ProductForm
 from flask_login import current_user, login_required
 from .auth_routes import validation_errors_to_error_messages
@@ -7,7 +7,7 @@ from .auth_routes import validation_errors_to_error_messages
 product_routes = Blueprint("products", __name__, url_prefix="/products")
 
 # Get all Products
-@product_routes.route("/")
+@product_routes.route("")
 def all_products():
     products = Product.query.all()
     return {"products": [product.to_dict() for product in products]}
@@ -24,6 +24,7 @@ def get_product(id):
 def create_product():
     form = ProductForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
+    # categories = Category.query.all()
     if form.validate_on_submit():
         new_product = Product(
             owner_id=current_user.id,

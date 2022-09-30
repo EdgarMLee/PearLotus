@@ -6,6 +6,7 @@ import { createProduct } from "../../../store/product";
 function CreateProductForm({ closeModal }) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
+  const categories = useSelector(state => Object.values(state.categories))
   const history = useHistory();
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
@@ -25,6 +26,7 @@ function CreateProductForm({ closeModal }) {
       price,
       description
     };
+
     const newProduct = await dispatch(createProduct(productInfo));
     if (newProduct && newProduct.errors) {
       setErrors(newProduct.errors);
@@ -33,6 +35,7 @@ function CreateProductForm({ closeModal }) {
       history.push(`/products/${newProduct.id}`);
     }
   };
+
   useEffect(() => {
     const errors = [];
     if (name.length > 50) {
@@ -87,6 +90,21 @@ function CreateProductForm({ closeModal }) {
               required
               />
             <label htmlFor="price">Price</label>
+            <select
+                    htmlFor='category'
+                    name='category'
+                    className='product-form-select'
+                    onChange={(e) => setCategory(e.target.value)}
+                  >
+                    <option disabled selected value={category}>-- Select a Category --</option>
+                    {categories?.map((category) => {
+                      return (
+                        <option
+                          value={category.name}
+                          className='product-form-options'>{category.display_name}</option>
+                      )
+                    })}
+                  </select>
               </div>
               <div className="inputInfo desc-input">
             <textarea

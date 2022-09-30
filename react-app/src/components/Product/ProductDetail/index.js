@@ -9,21 +9,22 @@ function ProductDetail() {
   const { productId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
-  const sessionUser = useSelector(state => state.session.user);
-  const product = useSelector(state => state.products[productId])
-  const reviews = useSelector(state => state.reviews)
+  const sessionUser = useSelector((state) => state.session.user);
+  const product = useSelector((state) => state.products[productId]);
+  const image = useSelector((state) => state.images[productId]);
+  const reviews = useSelector((state) => state.reviews);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    dispatch(getProductByid(productId)).then(() => setIsLoaded(true))
-  }, [])
+    dispatch(getProductByid(productId)).then(() => setIsLoaded(true));
+  }, []);
 
   const handleDelete = async (e) => {
     e.preventDefault();
     setIsLoaded(false);
     await dispatch(deleteProductById(productId));
     await history.push("/");
-  }
+  };
 
   const reviewed = () => {
     let reviewedUser = false;
@@ -33,7 +34,7 @@ function ProductDetail() {
       }
     }
     return reviewedUser;
-  }
+  };
 
   if (sessionUser && product) {
     if (sessionUser.id === product.owner_id) {
@@ -44,12 +45,10 @@ function ProductDetail() {
   return (
     isLoaded && (
       <div className="productdetail-container">
-        
+        <div>{image.productId}</div>
       </div>
     )
-  )
-
-
+  );
 }
 
 export default ProductDetail;

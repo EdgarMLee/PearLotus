@@ -18,7 +18,9 @@ class Product(db.Model):
   user = db.relationship('User', back_populates='product', foreign_keys=[owner_id])
   reviews = db.relationship("Review", back_populates="product", cascade="all, delete")
   images = db.relationship("Image", back_populates="product", cascade="all, delete")
-  # carts = db.relationship("Cart", back_populates="product", cascade="all, delete")
+  cart = db.relationship("Cart", back_populates="product", cascade="all, delete")
+  purchases = db.relationship("Purchase", back_populates="product", cascade="all, delete")
+
 
   def to_dict(self):
     return {
@@ -32,6 +34,6 @@ class Product(db.Model):
       "owner_id": self.owner_id,
       "review_ids": [review.id for review in self.reviews],
       "image_ids": [image.id for image in self.images],
-      "cart_ids": [cart.id for cart in self.carts],
+      # "cart_ids": [cart.id for cart in self.cart],
       "avg_rating": (sum([review.stars for review in self.reviews]) / len(self.reviews)) if len(self.reviews) > 0 else 0
     }

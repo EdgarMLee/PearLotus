@@ -15,7 +15,7 @@ class Purchase(db.Model):
 
   product = db.relationship("Product", back_populates='purchases')
   user = db.relationship("User", back_populates="purchases")
-  cart = db.relationship("Cart", back_populates="purchases")
+  # cart = db.relationship("Cart", back_populates="purchases")
 
   def to_dict(self):
     return {
