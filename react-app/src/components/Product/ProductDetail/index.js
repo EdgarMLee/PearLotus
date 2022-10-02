@@ -5,6 +5,7 @@ import { getProductByid, deleteProductById } from "../../../store/product";
 import EditProductModal from "../EditProduct";
 import CreateReviewModal from "../../Review/CreateReview";
 import ReviewCard from "../../Review/ReviewCard"
+import "./ProductDetail.css"
 
 function ProductDetail() {
   let currentUser;
