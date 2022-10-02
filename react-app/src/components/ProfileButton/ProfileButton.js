@@ -62,7 +62,7 @@ function ProfileButton() {
           <button onClick={openMenu} className="profileButton">
             <div className="profileIcon">
               <svg
-                viewBox="0 0 32 32"
+                viewBox="0 0 31 31"
                 xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"
                 role="presentation"
