@@ -4,8 +4,10 @@
 }
 
 .prod-detailpic {
-  width:400px;
-  border: 1px red solid;
+  width:800px;
+  margin-left: 4%;
+  /* position: sticky; */
+  /* border: 1px red solid; */
 }
 
 .deleteButton {
@@ -16,8 +18,56 @@
   font-weight: 600;
   height: 40px;
   width: 130px;
+  transition: all 0.8s;
 }
 
 .deleteButton:hover {
   cursor: pointer;
+  background-color: white;
+  color: rgb(255, 105, 88);
+  border: rgb(255, 105, 88) 1px solid;
+}
+
+.img-and-description {
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid red; */
+}
+
+.description-buttons {
+  /* border: 1px solid red; */
+  margin-left: 5%;
+  margin-top: 2%;
+  margin-right: 10%;
+}
+
+.product-name {
+  font-size: 30px;
+  color: rgb(0, 0, 0, 0.8);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.divLineDetail {
+  border-top: 1px solid rgb(200, 200, 200);
+  margin-top: 6%;
+  margin-bottom: 6%;
+}
+
+.product-short {
+  font-size: 22px;
+  color: rgb(0, 0, 0, 0.8);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 4%;
+}
+
+.product-description {
+  font-size: 16px;
+  color: rgb(0, 0, 0, 0.75);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 4%;
+}
+
+.productdetail-container {
+  display: flex;
+  flex-direction: column;
 }

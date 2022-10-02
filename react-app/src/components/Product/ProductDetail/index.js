@@ -4,8 +4,8 @@ import { useHistory, useParams } from "react-router-dom";
 import { getProductByid, deleteProductById } from "../../../store/product";
 import EditProductModal from "../EditProduct";
 import CreateReviewModal from "../../Review/CreateReview";
-import ReviewCard from "../../Review/ReviewCard"
-import "./ProductDetail.css"
+import ReviewCard from "../../Review/ReviewCard";
+import "./ProductDetail.css";
 
 function ProductDetail() {
   let currentUser;
@@ -48,46 +48,45 @@ function ProductDetail() {
   return (
     isLoaded && (
       <div className="productdetail-container">
-        Product Details Page
-        <div className="prod-detailpic">
-          <img className="prod-detailpic" src={product?.image["url"]} />
-        </div>
-        <div className="divider">
-          <div className="product-name">{product?.name}</div>
-          <div className="product-short">{product?.shortdescript}</div>
-          <div className="product-description">{product?.description}</div>
-        </div>
+        <div className="img-and-description">
+          <div className="prod-detailpic">
+            <img className="prod-detailpic" src={product?.image["url"]} />
+          </div>
+          <div className="description-buttons">
+          <div className="divider">
+            <div className="product-name">{product?.name}</div>
+            <div className="divLineDetail"/>
+            <div className="product-short">{product?.shortdescript}</div>
+            <div className="product-description">{product?.description}</div>
+          </div>
         {currentUser && (
           <div className="EditDeleteBusiness flex">
-            <EditProductModal key={productId}/>
-            <button
-              onClick={handleDelete}
-              className="deleteButton"
-            >
+            <EditProductModal key={productId} />
+            <button onClick={handleDelete} className="deleteButton">
               Delete Product
             </button>
           </div>
         )}
-        <div>
         </div>
+        </div>
+        <div className="review-prod-Box">
         <div className="reviews-header header">Reviews</div>
         <div className="createReview">
-        {sessionUser && <CreateReviewModal productId={productId} />}
+          {sessionUser && <CreateReviewModal productId={productId} />}
         </div>
         <div className="reviews-inner-container">
-                  {product?.review_ids.length ? (
-                    product?.review_ids.map((reviewId) => (
-                      <ReviewCard key={reviewId} review={reviews[reviewId]} />
-                    ))
-                  ) : (
-                    <div style={{ paddingBottom: "25px" }}>
-                      No reviews. Yet...
-                    </div>
-                  )}
-                   {product?.review_ids.map((reviewId) => (
-                      <ReviewCard key={reviewId} review={reviews[reviewId]} />
-                    ))}
-                </div>
+          {product?.review_ids.length ? (
+            product?.review_ids.map((reviewId) => (
+              <ReviewCard key={reviewId} review={reviews[reviewId]} />
+              ))
+              ) : (
+                <div style={{ paddingBottom: "25px" }}>No reviews. Yet...</div>
+                )}
+          {/* {product?.review_ids.map((reviewId) => (
+            <ReviewCard key={reviewId} review={reviews[reviewId]} />
+          ))} */}
+          </div>
+        </div>
       </div>
     )
   );
