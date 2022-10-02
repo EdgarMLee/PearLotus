@@ -5,11 +5,11 @@ import "./EditReview.css";
 import * as reviewActions from "../../../store/review";
 
 const EditReview = ({ rev, closeModal }) => {
-  const productId = rev?.productId;
+  // const productId = rev?.productId;
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [stars, setStars] = useState(rev?.stars * 20);
-  const [description, setDescription] = useState(rev.review);
+  const [description, setDescription] = useState(rev?.description);
   const [errors, setErrors] = useState([]);
   // const handleRating = (rate) => {
   //   setStars(rate);
@@ -78,7 +78,7 @@ const EditReview = ({ rev, closeModal }) => {
         <button
           className="submitButton-review"
           type="submit"
-          disabled={description.length <= 3}
+          disabled={description?.length <= 3}
         >
           Submit Review
         </button>

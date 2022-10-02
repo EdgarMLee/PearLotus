@@ -1,7 +1,9 @@
 .card-container {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
+  background-color: rgb(206, 206, 206, 0.3);
   max-width: 300px;
   display: flex;
+  margin: 1% 1% 1% 1%;
   /* flex-direction: column; */
 }
 
@@ -16,15 +18,14 @@
 }
 
 .image-pic {
-  border: 1px solid red;
-  width: 225;
-  height: 320px;
+  /* border: 1px solid red; */
+  width: 300px;
+  height: 350px;
   display: flex;
   flex-direction: column;
 }
 
 .product-card {
-  border: 1px solid red;
   max-width: 300px;
   display: flex;
   flex-direction: column;
@@ -34,24 +35,42 @@
   text-decoration: none;
   color: black;
   font-family: "UntitledSans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   display: flex;
   align-items: center;
   justify-content:flex-start;
   margin-bottom: 3%;
+  margin-left: 4%;
 }
 
 .product-shortdescript {
   color: rgb(0, 0, 0, 0.35);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   font-style: oblique;
   align-items: center;
   justify-content:flex-start;
   margin-bottom: 12%;
+  /* border: 1px red solid; */
+  max-height: 15px;
+  margin-left: 4%;
+  margin-right: 4%;
 }
 
 .product-price {
-  color: rgb(0, 0, 0, 0.7);
+  color: rgb(0, 0, 0, 0.5);
+  margin-left: 4%;
+  margin-bottom: 2%;
+}
+
+.bottomBox {
+  height: 40px;
+}
+
+.titleText {
+  font-size: 13px;
+  color: rgb(134, 133, 133, 0.7);
+  margin-left: 4%;
+  margin-top: 4%;
 }

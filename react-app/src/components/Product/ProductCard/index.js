@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import "./ProductCard.css";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import "./ProductCard.css";
 
 
 function ProductCard({ product, image }) {
@@ -31,6 +31,10 @@ function ProductCard({ product, image }) {
         </div>
         <div className="product-price">
           ${product.price}
+        </div>
+        <div className="divLine"/>
+        <div className="bottomBox">
+        <div className="titleText">𝗣𝗘𝗔𝗥 & 𝗟𝗢𝗧𝗨𝗦 𝗖𝗢𝗟𝗟𝗘𝗖𝗧𝗜𝗢𝗡</div>
         </div>
       </div>
     </div>
