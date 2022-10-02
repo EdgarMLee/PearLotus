@@ -1,6 +1,6 @@
 .card-container {
   /* border: 1px solid blue; */
-  background-color: rgb(206, 206, 206, 0.3);
+  background-color: rgba(240, 240, 240, 0.8);
   max-width: 300px;
   display: flex;
   margin: 1% 1% 1% 1%;
@@ -30,6 +30,7 @@
   justify-content:flex-start;
   margin-bottom: 3%;
   margin-left: 4%;
+  margin-top: 2%;
 }
 
 .product-shortdescript {
