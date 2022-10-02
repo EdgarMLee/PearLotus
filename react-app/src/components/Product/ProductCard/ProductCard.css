@@ -4,17 +4,6 @@
   max-width: 300px;
   display: flex;
   margin: 1% 1% 1% 1%;
-  /* flex-direction: column; */
-}
-
-.product-card-outer {
-  /* display: flex; */
-  /* flex-direction: column; */
-}
-
-.product-card-image {
-  /* display: flex; */
-  /* flex-direction: column; */
 }
 
 .image-pic {
@@ -52,10 +41,10 @@
   align-items: center;
   justify-content:flex-start;
   margin-bottom: 12%;
-  /* border: 1px red solid; */
   max-height: 15px;
   margin-left: 4%;
   margin-right: 4%;
+  /* border: 1px red solid; */
 }
 
 .product-price {
