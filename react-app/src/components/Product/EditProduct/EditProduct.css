@@ -1,5 +1,5 @@
 .editButton {
-  background-color: rgb(255, 100, 80);
+  background-color: rgb(255, 105, 88);
   color: white;
   font-size: 14px;
   border: none;
@@ -11,6 +11,6 @@
 .editButton:hover {
   cursor: pointer;
   background-color: white;
-  color: rgb(255, 100, 80);
-  border: rgb(255, 100, 80) 1px solid;
+  color: rgb(255, 105, 88);
+  border: rgb(255, 105, 88) 1px solid;
 }

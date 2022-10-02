@@ -55,13 +55,13 @@
 .submitDemo:hover {
   cursor: pointer;
   background-color: white;
-  color: rgb(255, 100, 80);
-  border: rgb(255, 100, 80) 1px solid;
+  color: rgb(255, 105, 88);
+  border: rgb(255, 105, 88) 1px solid;
 }
 
 .submitDemo,
 .submitLogin {
-  background-color: rgb(255, 100, 80);
+  background-color: rgb(255, 105, 88);
   border: none;
   color: white;
   border-radius: 4px;
