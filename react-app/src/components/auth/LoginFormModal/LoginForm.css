@@ -1,0 +1,88 @@
+.loginBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 60px;
+  /* border-radius: 4px; */
+  /* border: 1px red solid; */
+}
+
+.signupErrors,
+.loginErrors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 10px; */
+}
+
+.errors {
+  font-family: Helvetica, Rounded;
+  font-size: 18px;
+  color: red;
+}
+
+.errors:hover {
+  font-weight: 650;
+  color: red;
+  font-size: 18px;
+}
+
+.loginTitle {
+  font-family: Helvetica, Rounded;
+  font-size: 20px;
+  font-weight: 750;
+  color: rgb(255, 100, 80);
+}
+
+.userInput,
+.emailInput,
+.passwordInput {
+  font-size: 16px;
+  border: solid 1px lightslategray;
+  border-radius: 4px;
+  min-width: 300px;
+  max-width: 300px;
+  height: 30px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 15px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.submitLogin:hover,
+.submitDemo:hover {
+  cursor: pointer;
+  background-color: white;
+  color: rgb(255, 100, 80);
+  border: rgb(255, 100, 80) 1px solid;
+}
+
+.submitDemo,
+.submitLogin {
+  background-color: rgb(255, 100, 80);
+  border: none;
+  color: white;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: 750;
+  height: 45px;
+  margin-top: 8%;
+  width: 150px;
+  margin-bottom: 10px;
+  margin-right: 5%;
+}
+
+.loginDemo {
+  display: flex;
+  flex-direction: row;
+  margin-left: 5%;
+}
+
+/* .inputItem {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  width: 100%;
+} */

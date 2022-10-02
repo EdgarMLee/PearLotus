@@ -43,7 +43,7 @@ def create_product():
     form = ProductForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     categories = Category.query.all()
-
+    form.category.choices=[(category.to_category(), category.to_categoryname() )for category in categories]
     if form.validate_on_submit():
         new_product = Product(
             owner_id=current_user.id,

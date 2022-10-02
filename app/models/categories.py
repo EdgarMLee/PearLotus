@@ -9,5 +9,11 @@ class Category(db.Model):
   def to_dict(self):
     return {
       "id": self.id,
-      "name": self.name
+      "name": self.name,
     }
+
+  def to_category(self):
+    return self.name
+
+  def to_categoryname(self):
+    return self.name

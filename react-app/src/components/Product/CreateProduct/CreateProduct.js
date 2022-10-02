@@ -12,6 +12,7 @@ function CreateProductForm({ closeModal }) {
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
+  const [shortdescript, setShortdescript] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState([]);
 
@@ -24,6 +25,7 @@ function CreateProductForm({ closeModal }) {
       name,
       category,
       price,
+      shortdescript,
       description
     };
 
@@ -50,11 +52,14 @@ function CreateProductForm({ closeModal }) {
     if (price <= 0) {
       errors.push("price: Price is too low!");
     }
+    if (shortdescript.length > 70) {
+      errors.push("shortdescript: Short Description is too long!");
+    }
     if (description.length > 255) {
       errors.push("description: Description is too long!");
     }
     setErrors(errors);
-  }, [name, price, description]);
+  }, [name, price, shortdescript, description]);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -90,8 +95,38 @@ function CreateProductForm({ closeModal }) {
               required
               />
             <label htmlFor="price">Price</label>
-              # CATEGORY GOES IN HERE
               </div>
+
+               <div className='select-outer'>
+                  <select
+                    htmlFor='category'
+                    name='category'
+                    className='product-form-select'
+                    onChange={(e) => setCategory(e.target.value)}
+                  >
+                    <option disabled selected value={category}>
+                      Category
+                      </option>
+                    {categories?.map((category) => {
+                      return (
+                        <option
+                          value={category.name}
+                          className='product-form-options'>{category.name}</option>
+                      )
+                    })}
+                  </select>
+                </div>
+              <div className="inputInfo">
+            <input
+              type="text"
+              value={shortdescript}
+              className="shortdescriptInput"
+              placeholder=" "
+              onChange={(e) => setShortdescript(e.target.value)}
+              required
+            />
+            <label htmlFor="shortdescript">Short Description</label>
+            </div>
               <div className="inputInfo desc-input">
             <textarea
               type="text"

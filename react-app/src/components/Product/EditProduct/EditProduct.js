@@ -9,10 +9,11 @@ function ProductEditForm({ closeModal }) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const product = useSelector(state => state.products[productId])
-
+  const categories = useSelector(state => Object.values(state.categories))
   const [name, setName] = useState(product?.name)
   const [category, setCategory] = useState(product?.category)
   const [price, setPrice] = useState(product?.price)
+  const [shortdescript, setShortdescript] = useState(product?.shortdescript)
   const [description, setDescription] = useState(product?.description)
   const [errors, setErrors] = useState([])
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -38,11 +39,14 @@ function ProductEditForm({ closeModal }) {
     if (price <= 0) {
       errors.push("price: Price is too low!");
     }
+    if (shortdescript.length > 70) {
+      errors.push("shortdescript: Short Description is too long!");
+    }
     if (description.length > 255) {
       errors.push("description: Description is too long!");
     }
     setErrors(errors);
-  }, [name, price, description]);
+  }, [name, price, shortdescript, description]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,6 +58,7 @@ function ProductEditForm({ closeModal }) {
       name,
       category,
       price,
+      shortdescript,
       description
     };
     const data = await dispatch(editProduct(productInfo, product.id));
@@ -101,6 +106,38 @@ function ProductEditForm({ closeModal }) {
               />
             <label htmlFor="price">Price</label>
               </div>
+              {/* CATEGORY GOES IN HERE */}
+              <div className='select-outer'>
+                  <select
+                    htmlFor='category'
+                    name='category'
+                    className='edit-product'
+                    onChange={(e) => setCategory(e.target.value)}
+                    value={category}
+                  >
+                    <option disabled selected value={category}>
+                      Category
+                      </option>
+                    {categories?.map((category) => {
+                      return (
+                        <option
+                          value={category.name}
+                          className='edit-category-name'>{category.name}</option>
+                      )
+                    })}
+                  </select>
+                </div>
+              <div className="inputInfo">
+            <input
+              type="text"
+              value={shortdescript}
+              className="shortdescriptInput"
+              placeholder=" "
+              onChange={(e) => setShortdescript(e.target.value)}
+              required
+            />
+            <label htmlFor="shortdescript">Short Description</label>
+            </div>
               <div className="inputInfo desc-input">
             <textarea
               type="text"

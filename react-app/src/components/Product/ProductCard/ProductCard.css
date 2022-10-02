@@ -29,3 +29,29 @@
   display: flex;
   flex-direction: column;
 }
+
+.product-card-name {
+  text-decoration: none;
+  color: black;
+  font-family: "UntitledSans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+  margin-bottom: 3%;
+}
+
+.product-shortdescript {
+  color: rgb(0, 0, 0, 0.35);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  font-style: oblique;
+  align-items: center;
+  justify-content:flex-start;
+  margin-bottom: 12%;
+}
+
+.product-price {
+  color: rgb(0, 0, 0, 0.7);
+}

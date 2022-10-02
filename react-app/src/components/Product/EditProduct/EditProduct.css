@@ -1,0 +1,16 @@
+.editButton {
+  background-color: rgb(255, 100, 80);
+  color: white;
+  font-size: 14px;
+  border: none;
+  font-weight: 600;
+  height: 40px;
+  width: 110px;
+}
+
+.editButton:hover {
+  cursor: pointer;
+  background-color: white;
+  color: rgb(255, 100, 80);
+  border: rgb(255, 100, 80) 1px solid;
+}

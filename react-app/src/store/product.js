@@ -4,6 +4,9 @@ const UPDATE = "products/UPDATE";
 const DELETE = "products/DELETE";
 const ADD_ITEM_TO_PRODUCT = "products/ADD_ITEM_TO_PRODUCT";
 
+export const allProductsArray = (state) => Object.values(state.products);
+export const allProductsObj = state => state.products
+
 const getAll = (products) => ({
   type: GET_ALL,
   payload: products,

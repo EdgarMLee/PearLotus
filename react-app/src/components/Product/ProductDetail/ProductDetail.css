@@ -1,9 +1,23 @@
 .productdetail-container {
   display: flex;
-  
+
 }
 
 .prod-detailpic {
-  width:45%;
+  width:400px;
   border: 1px red solid;
+}
+
+.deleteButton {
+  background-color: rgb(255, 100, 80);
+  color: white;
+  font-size: 14px;
+  border: none;
+  font-weight: 600;
+  height: 40px;
+  width: 130px;
+}
+
+.deleteButton:hover {
+  cursor: pointer;
 }
