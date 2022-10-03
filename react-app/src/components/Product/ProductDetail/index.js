@@ -5,6 +5,7 @@ import { getProductByid, deleteProductById } from "../../../store/product";
 import EditProductModal from "../EditProduct";
 import CreateReviewModal from "../../Review/CreateReview";
 import ReviewCard from "../../Review/ReviewCard";
+import { allReviewsArray } from "../../../store/review";
 import "./ProductDetail.css";
 
 function ProductDetail() {
@@ -12,6 +13,7 @@ function ProductDetail() {
   const { productId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
+  const reviewsObj = useSelector(allReviewsArray)
   const sessionUser = useSelector((state) => state.session.user);
   const product = useSelector((state) => state.products[productId]);
   // const image = useSelector((state) => state.images[productId]);

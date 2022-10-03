@@ -6,6 +6,7 @@ const CREATE = "reviews/CREATE";
 const UPDATE = "reviews/UPDATE";
 const DELETE = "reviews/DELETE";
 
+export const allReviewsArray = (state) => Object.values(state.reviews);
 
 const getAll = (reviews) => ({
   type: GET_ALL,
@@ -43,6 +44,15 @@ export const getReviews = () => async (dispatch) => {
 };
 
 // TODO: GET REVIEW BY ID THUNK
+export const getReviewByid = (reviewId) => async (dispatch) => {
+  const res = await fetch(`/api/reviews/${reviewId}`);
+  if (res.ok) {
+    const review = await res.json();
+    dispatch(getAll(review))
+    dispatch(getProductByid(review.description))
+  }
+  return res;
+}
 
 //GET REVIEWS BY CURRENT USER
 export const UserReview = () => async (dispatch) => {

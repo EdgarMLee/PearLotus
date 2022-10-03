@@ -4,18 +4,20 @@ import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import EditReviewModal from "../EditReview/EditReview";
 import { deleteReviewById, getReviews } from "../../../store/review";
+import { allReviewsArray } from "../../../store/review";
 import "./ReviewCard.css";
 // import DisplayStars from "../DisplayStars";
 // import defaultImage from "../../../imgs/notyelpDefault.png";
 // import FooterAbout from "../../FooterLinks/Footer";
 
-function ReviewCard() {
+function ReviewCard({review}) {
   const allReviews = useSelector(state => state.reviews)
   // DEFINE REVIEW BY ID HERE
+  // console.log("!!!!!!", review)
   const { reviewId } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
-  const review = useSelector((state) => state.reviews[reviewId]);
+  // const review = useSelector((state) => state.reviews[reviewId]);
   console.log(review, "!!!!!!!!!!!!!")
   useEffect(() => {
     dispatch(getReviews())
@@ -35,7 +37,7 @@ function ReviewCard() {
               onError={(e) => e.target.src = defaultImage} />
           </div> */}
           <div className="review-user-info">
-            <div className="review-username">{review?.user.username}</div>
+            <div className="review-username">{review?.user?.username}</div>
             <div className="review-card-user-date">
             {/* {new Date(review?.created_at).toLocaleDateString()} */}
           </div>
