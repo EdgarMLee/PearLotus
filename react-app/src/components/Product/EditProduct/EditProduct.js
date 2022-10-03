@@ -123,7 +123,7 @@ function ProductEditForm({ closeModal }) {
                     value={category}
                   >
                     {categories?.map((category) => {
-                      console.log("!!!!!!!!", categories);
+                      // console.log("!!!!!!!!", categories);
                       return (
                         <option
                           value={category.name}
