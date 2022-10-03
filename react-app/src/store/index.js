@@ -6,7 +6,6 @@ import reviewReducer from './review';
 import imageReducer from './image';
 import categoryReducer from './category';
 
-
 const rootReducer = combineReducers({
   session,
   products: productReducer,
