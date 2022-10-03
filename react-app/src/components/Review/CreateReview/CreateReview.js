@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import { createReview } from '../../../store/review';
-import { useParams } from 'react-router-dom';
+import React, { useState } from "react";
+import { createReview } from "../../../store/review";
+import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import './CreateReview.css';
+import "./CreateReview.css";
 
 function ReviewForm() {
-  const {productId} = useParams();
+  const { productId } = useParams();
   const dispatch = useDispatch();
-  const [description, setDescription] = useState('');
-  const [stars, setStars] = useState('');
+  const [description, setDescription] = useState("");
+  const [stars, setStars] = useState("");
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const reviewInfo = {
       description,
-      stars
+      stars,
     };
 
     setErrors([]);
@@ -24,50 +24,52 @@ function ReviewForm() {
       // console.log('data', data)
       if (data && data.errors) setErrors(data.errors);
       else if (data && data.message) setErrors([data.message]);
-    })
-  }
+    });
+  };
 
   return (
-    <form onSubmit={handleSubmit} className='reviewForm'>
-      <div className='reviewTitle'>
-        <h2 className='reviewHTitle'>Review</h2>
-      </div>
-      <div>
-        {Object.values(errors).map((error, idx) => (
-          <div key={idx} className='reviewErrors'>{error}</div>
-        ))}
-      </div>
-      <div className='reviewDescription'>
+    <div className="reviewBox">
+      <form onSubmit={handleSubmit} className="reviewForm">
+        <div className="reviewTitle">
+          <h2 className="reviewHTitle">Review</h2>
+        </div>
+        <div>
+          {Object.values(errors).map((error, idx) => (
+            <div key={idx} className="reviewErrors">
+              {error}
+            </div>
+          ))}
+        </div>
+        <div className="reviewDescription">
           <input
             type="text"
-            placeholder='Description'
-            className='userReview'
+            placeholder="Description"
+            className="userReview"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
-            />
-      </div>
-      <div className='reviewStars'>
-        <input
-          type="number"
-          placeholder='Rate from 1-5 Stars'
-          min="0"
-          max="5"
-          className='userStar'
-          value={stars}
-          onChange={(e) => setStars(e.target.value)}
-          required
           />
-      </div>
-      <div>
-        <button
-        type="submit"
-        className="submitReview">
-          Create Review
+        </div>
+        <div className="reviewStars">
+          <input
+            type="number"
+            placeholder="Rate from 1-5 Stars"
+            min="0"
+            max="5"
+            className="userStar"
+            value={stars}
+            onChange={(e) => setStars(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <button type="submit" className="submitReview">
+            Create Review
           </button>
-      </div>
-    </form>
-  )
+        </div>
+      </form>
+    </div>
+  );
 }
 
 export default ReviewForm;
