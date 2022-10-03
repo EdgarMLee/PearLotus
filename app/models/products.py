@@ -15,7 +15,6 @@ class Product(db.Model):
   created_at = db.Column("created_at", db.DateTime, default=func.now())
   updated_at = db.Column("updated_at", db.DateTime, default=func.now(), onupdate=func.now())
 
-
   user = db.relationship('User', back_populates='product', foreign_keys=[owner_id])
   reviews = db.relationship("Review", back_populates="product", cascade="all, delete")
   images = db.relationship("Image", back_populates="product", cascade="all, delete")

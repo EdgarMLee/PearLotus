@@ -15,3 +15,61 @@
   color: rgb(255, 105, 88);
   border: rgb(255, 105, 88) 1px solid;
 }
+
+.editProductBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 450px;
+  width: 550px;
+}
+
+.editProductTitle {
+  font-family: Helvetica, Rounded;
+  font-size: 20px;
+  font-weight: 750;
+  color: rgb(255, 100, 80);
+}
+
+.nameInput,
+.priceInput,
+.edit-product,
+.shortdescriptInput,
+.descriptionInput {
+  font-size: 16px;
+  border: solid 1px lightslategray;
+  border-radius: 4px;
+  min-width: 300px;
+  max-width: 300px;
+  height: 30px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 15px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.edit-product {
+  margin-left: 2.5%;
+}
+
+.updateButton {
+  background-color: rgb(255, 105, 88);
+  color: white;
+  font-size: 14px;
+  border: none;
+  font-weight: 600;
+  height: 40px;
+  width: 130px;
+  transition: all 0.8s;
+  margin-left: 30%;
+  margin-top: 4%;
+}
+
+.updateButton:hover {
+  cursor: pointer;
+  background-color: white;
+  color: rgb(255, 105, 88);
+  border: rgb(255, 105, 88) 1px solid;
+}

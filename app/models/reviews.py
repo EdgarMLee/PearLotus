@@ -7,7 +7,7 @@ class Review(db.Model):
     productId = db.Column(db.Integer, db.ForeignKey('products.id'), nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     stars = db.Column(db.Integer, nullable=False)
-    description = db.Column(db.String(255), nullable=False)
+    description = db.Column(db.String(500), nullable=False)
 
     created_at = db.Column("created_at", db.DateTime, default=func.now())
     updated_at = db.Column("updated_at", db.DateTime, default=func.now(), onupdate=func.now())

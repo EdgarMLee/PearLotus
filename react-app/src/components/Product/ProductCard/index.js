@@ -17,7 +17,7 @@ function ProductCard({ product }) {
           <Link
             className="product-card-image"
             to={`/products/${product.id}`}>
-              <img className="image-pic" src={image?.url}/>
+              <img className="image-pic" src={product?.image ? image?.url : "https://static.vecteezy.com/system/resources/previews/005/481/723/original/set-of-natural-organic-cosmetic-products-in-bottle-jar-tube-for-skincare-basic-female-beauty-skin-care-cartoon-illustration-isolated-on-white-background-vector.jpg"}/>
             </Link>
         </div>
         <div className="product-card-info">
