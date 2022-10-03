@@ -1,5 +1,5 @@
 # Welcome to Pear & Lotus
-Clone of Peach & Lily
+Clone of Peach & Lily skincare website
 
 ## This project was developed utilizing:
 
