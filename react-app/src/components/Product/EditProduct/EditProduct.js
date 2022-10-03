@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import EditProductModal from ".";
 import { editProduct, getProductByid } from "../../../store/product";
+import { getCategory } from "../../../store/category";
 
 function ProductEditForm({ closeModal }) {
   const { productId } = useParams();
@@ -48,6 +49,10 @@ function ProductEditForm({ closeModal }) {
     setErrors(errors);
   }, [name, price, shortdescript, description]);
 
+  useEffect(() => {
+    dispatch(getCategory());
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitted(true);
@@ -73,94 +78,92 @@ function ProductEditForm({ closeModal }) {
   return (
     isLoaded && (
       <div className="editProductBox">
-      <>
-      <form onSubmit={handleSubmit} className="editForm">
-        <div className="editProductBox">
-          <div className="editProductTitle">Update Your Product</div>
-          {isSubmitted &&
-            errors.map((error, ind) => (
-              <div className="editErrors">
-                <div key={ind} className="editError">
-                  {error.split(": ")[1]}
+        <>
+          <form onSubmit={handleSubmit} className="editForm">
+            <div className="editProductBox">
+              <div className="editProductTitle">Update Your Product</div>
+              {isSubmitted &&
+                errors.map((error, ind) => (
+                  <div className="editErrors">
+                    <div key={ind} className="editError">
+                      {error.split(": ")[1]}
+                    </div>
+                  </div>
+                ))}
+              <div className="edit-container">
+                <div className="inputInfo">
+                  <input
+                    type="text"
+                    value={name}
+                    className="nameInput"
+                    placeholder="Name"
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
+                  {/* <label htmlFor="name">Name</label> */}
                 </div>
+                <div className="inputInfo">
+                  <input
+                    type="integer"
+                    value={price}
+                    className="priceInput"
+                    placeholder="Price"
+                    onChange={(e) => setPrice(e.target.value)}
+                    required
+                  />
+                  {/* <label htmlFor="price">Price</label> */}
+                </div>
+                {/* CATEGORY GOES IN HERE */}
+                <div className="select-outer">
+                  <select
+                    htmlFor="category"
+                    name="category"
+                    className="edit-product"
+                    onChange={(e) => setCategory(e.target.value)}
+                    value={category}
+                  >
+                    {categories?.map((category) => {
+                      console.log("!!!!!!!!", categories);
+                      return (
+                        <option
+                          value={category.name}
+                          className="edit-category-name"
+                        >
+                          {category.name}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
+                <div className="inputInfo">
+                  <input
+                    type="text"
+                    value={shortdescript}
+                    className="shortdescriptInput"
+                    placeholder="Short Description"
+                    onChange={(e) => setShortdescript(e.target.value)}
+                    required
+                  />
+                  {/* <label htmlFor="shortdescript">Short Description</label> */}
+                </div>
+                <div className="inputInfo desc-input">
+                  <textarea
+                    type="text"
+                    value={description}
+                    className="descriptionInput"
+                    placeholder="Description"
+                    onChange={(e) => setDescription(e.target.value)}
+                    required
+                  />
+                  {/* <label htmlFor="description">Description</label> */}
+                </div>
+                <button name="submit" type="submit" className="updateButton">
+                  Update Product
+                </button>
               </div>
-            ))}
-          <div className="edit-container">
-            <div className="inputInfo">
-              <input
-                type="text"
-                value={name}
-                className="nameInput"
-                placeholder="Name"
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-              {/* <label htmlFor="name">Name</label> */}
             </div>
-            <div className="inputInfo">
-              <input
-                type="integer"
-                value={price}
-                className="priceInput"
-                placeholder="Price"
-                onChange={(e) => setPrice(e.target.value)}
-                required
-              />
-              {/* <label htmlFor="price">Price</label> */}
-            </div>
-            {/* CATEGORY GOES IN HERE */}
-            <div className="select-outer">
-              <select
-                htmlFor="category"
-                name="category"
-                className="edit-product"
-                onChange={(e) => setCategory(e.target.value)}
-                value={category}
-              >
-                <option disabled selected value={category}>
-                  Category
-                </option>
-                {categories?.map((category) => {
-                  return (
-                    <option
-                      value={category.name}
-                      className="edit-category-name"
-                    >
-                      {category.name}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
-            <div className="inputInfo">
-              <input
-                type="text"
-                value={shortdescript}
-                className="shortdescriptInput"
-                placeholder="Short Description"
-                onChange={(e) => setShortdescript(e.target.value)}
-                required
-              />
-              {/* <label htmlFor="shortdescript">Short Description</label> */}
-            </div>
-            <div className="inputInfo desc-input">
-              <textarea
-                type="text"
-                value={description}
-                className="descriptionInput"
-                placeholder="Description"
-                onChange={(e) => setDescription(e.target.value)}
-                required
-              />
-              {/* <label htmlFor="description">Description</label> */}
-            </div>
-            <button name="submit" type="submit" className="updateButton">
-              Update Product
-            </button>
-          </div>
-        </div>
-      </form>
-      </>
+          </form>
+        </>
       </div>
     )
   );

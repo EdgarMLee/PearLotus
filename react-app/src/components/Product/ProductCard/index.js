@@ -36,6 +36,7 @@ function ProductCard({ product }) {
         <div className="divLine"/>
         <div className="bottomBox">
         <div className="titleText">𝗣𝗘𝗔𝗥 & 𝗟𝗢𝗧𝗨𝗦 𝗖𝗢𝗟𝗟𝗘𝗖𝗧𝗜𝗢𝗡</div>
+        <div className="category-product">{product.category}</div>
         </div>
       </div>
     </div>

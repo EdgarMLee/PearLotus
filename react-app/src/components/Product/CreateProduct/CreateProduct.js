@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createProduct } from "../../../store/product";
-import { getCategory } from "../../../store/category"
+import { getCategory } from "../../../store/category";
 
 function CreateProductForm({ closeModal }) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
-  const categories = useSelector(state => Object.values(state.categories))
+  const categories = useSelector((state) => Object.values(state.categories));
   const history = useHistory();
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
@@ -27,7 +27,7 @@ function CreateProductForm({ closeModal }) {
       category,
       price,
       shortdescript,
-      description
+      description,
     };
 
     const newProduct = await dispatch(createProduct(productInfo));
@@ -40,8 +40,8 @@ function CreateProductForm({ closeModal }) {
   };
 
   useEffect(() => {
-    dispatch(getCategory())
-  }, [])
+    dispatch(getCategory());
+  }, []);
 
   useEffect(() => {
     const errors = [];
@@ -78,8 +78,8 @@ function CreateProductForm({ closeModal }) {
               </div>
             </div>
           ))}
-          <div className="input-container">
-            <div className="inputInfo">
+        <div className="input-container">
+          <div className="inputInfo">
             <input
               type="text"
               value={name}
@@ -89,8 +89,8 @@ function CreateProductForm({ closeModal }) {
               required
             />
             {/* <label htmlFor="name">Name</label> */}
-            </div>
-            <div className="inputInfo">
+          </div>
+          <div className="inputInfo">
             <input
               type="integer"
               value={price}
@@ -98,30 +98,33 @@ function CreateProductForm({ closeModal }) {
               placeholder="Price"
               onChange={(e) => setPrice(e.target.value)}
               required
-              />
+            />
             {/* <label htmlFor="price">Price</label> */}
-              </div>
+          </div>
 
-               <div className='select-outer'>
-                  <select
-                    htmlFor='category'
-                    name='category'
-                    className='product-form-select'
-                    onChange={(e) => setCategory(e.target.value)}
+          <div className="select-outer">
+            <select
+              htmlFor="category"
+              name="category"
+              className="product-form-select"
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option disabled selected value={category}>
+                Category
+              </option>
+              {categories?.map((category) => {
+                return (
+                  <option
+                    value={category.name}
+                    className="product-form-options"
                   >
-                    <option disabled selected value={category}>
-                      Category
-                      </option>
-                    {categories?.map((category) => {
-                      return (
-                        <option
-                          value={category.name}
-                          className='product-form-options'>{category.name}</option>
-                      )
-                    })}
-                  </select>
-                </div>
-              <div className="inputInfo">
+                    {category.name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+          <div className="inputInfo">
             <input
               type="text"
               value={shortdescript}
@@ -131,8 +134,8 @@ function CreateProductForm({ closeModal }) {
               required
             />
             {/* <label htmlFor="shortdescript">Short Description</label> */}
-            </div>
-              <div className="inputInfo desc-input">
+          </div>
+          <div className="inputInfo desc-input">
             <textarea
               type="text"
               value={description}
@@ -140,14 +143,14 @@ function CreateProductForm({ closeModal }) {
               placeholder="Description"
               onChange={(e) => setDescription(e.target.value)}
               required
-              />
+            />
             {/* <label htmlFor="description">Description</label> */}
-              </div>
-              <button name='submit' type='submit' className='createProductButton'>
-                Create Product
-              </button>
-            </div>
           </div>
+          <button name="submit" type="submit" className="createProductButton">
+            Create Product
+          </button>
+        </div>
+      </div>
     </form>
   );
 }
