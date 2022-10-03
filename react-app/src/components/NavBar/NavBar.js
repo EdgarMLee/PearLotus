@@ -17,7 +17,7 @@ const NavBar = ({ loaded }) => {
 
   return (
     <nav>
-      <div className="salmon-top"></div>
+      <div className="salmon-top"/>
       <div className="navbar-container">
         <div className="empty-div"></div>
         <div className="home-button">
@@ -39,7 +39,7 @@ const NavBar = ({ loaded }) => {
           </div>
         </div>
       </div>
-      <div className="divLine"/>
+      <div className="divLineNav"/>
     </nav>
   );
 };

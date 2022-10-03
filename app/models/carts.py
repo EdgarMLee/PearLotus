@@ -10,13 +10,14 @@ class Cart(db.Model):
   userId = db.Column("userId", db.Integer, db.ForeignKey("users.id"))
   productId = db.Column("productId", db.Integer, db.ForeignKey("products.id"))
 
+
   created_at = db.Column("created_at", db.DateTime, default=func.now())
   updated_at = db.Column("updated_at", db.DateTime, default=func.now(), onupdate=func.now())
 
-  product = db.relationship("Product", back_populates='carts')
-  user = db.relationship("User", back_populates="carts")
-  purchase = db.relationship("Purchase", back_populates="carts")
-  images = db.relationship("Image", back_populates="product", cascade="all, delete")
+  product = db.relationship("Product", back_populates='cart')
+  user = db.relationship("User", back_populates="cart")
+  # purchase = db.relationship("Purchase", back_populates="cart")
+  # images = db.relationship("Image", back_populates="product", cascade="all, delete")
 
   def to_dict(self):
     return {

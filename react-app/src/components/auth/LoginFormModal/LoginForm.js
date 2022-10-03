@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../../store/session";
+import "./LoginForm.css";
 
 const LoginForm = ({ closeModal }) => {
   const [errors, setErrors] = useState([]);
@@ -38,7 +39,7 @@ const LoginForm = ({ closeModal }) => {
           {isSubmitted &&
             errors.map((error, ind) => (
               <div key={ind} className="errors">
-                {error.split(": ")[1]}
+                *{error.split(": ")[1]}
               </div>
             ))}
         </div>
@@ -47,26 +48,27 @@ const LoginForm = ({ closeModal }) => {
             <input
               // name="email"
               type="text"
-              placeholder=" "
+              placeholder="Email"
               className="emailInput"
               value={email}
               onChange={updateEmail}
               required
             />
-            <label htmlFor="Email">Email</label>
+            {/* <label htmlFor="Email">Email</label> */}
           </div>
           <div className="inputItem">
             <input
               // name="password"
               type="password"
-              placeholder=" "
+              placeholder="Password"
               className="passwordInput"
               value={password}
               required
               onChange={updatePassword}
-            />
-            <label htmlFor="password">Password</label>
+              />
+            {/* <label htmlFor="password">Password</label> */}
           </div>
+          <div className="loginDemo">
           <button type="submit" className="submitLogin">
             Login
           </button>
@@ -77,9 +79,10 @@ const LoginForm = ({ closeModal }) => {
             }}
             type="submit"
             className="submitDemo"
-          >
+            >
             Demo Login
           </button>
+            </div>
         </div>
       </div>
     </form>

@@ -1,0 +1,118 @@
+.productdetail-container {
+  display: flex;
+
+}
+
+.prod-detailpic {
+  width:800px;
+  margin-left: 4%;
+  /* position: sticky; */
+  /* border: 1px red solid; */
+}
+
+.deleteButton {
+  background-color: rgb(255, 105, 88);
+  color: white;
+  font-size: 14px;
+  border: none;
+  font-weight: 600;
+  height: 40px;
+  width: 130px;
+  transition: all 0.8s;
+}
+
+.deleteButton:hover {
+  cursor: pointer;
+  background-color: white;
+  color: rgb(255, 105, 88);
+  border: rgb(255, 105, 88) 1px solid;
+}
+
+.img-and-description {
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid red; */
+}
+
+.description-buttons {
+  /* border: 1px solid red; */
+  margin-left: 5%;
+  margin-top: 1.5%;
+  margin-right: 12.5%;
+}
+
+.product-name {
+  font-size: 30px;
+  color: rgb(0, 0, 0, 0.8);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.product-category {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: rgb(0, 0, 0, 0.8);
+  margin-left: 1%;
+  font-weight: bolder;
+}
+
+.type {
+  margin-left: 5%;
+}
+
+.type,
+.product-category {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.company-category {
+  display: flex;
+  flex-direction: row;
+}
+
+.products-price {
+  font-size: 25px;
+}
+
+.product-company {
+  font-size: 14px;
+  color: rgb(0, 0, 0, 0.8);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+}
+
+.divLineDetail {
+  border-top: 1px solid rgb(200, 200, 200);
+  margin-top: 6%;
+  margin-bottom: 6%;
+}
+
+.product-short {
+  font-size: 22px;
+  color: rgb(0, 0, 0, 0.8);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 4%;
+}
+
+.product-description {
+  font-size: 16px;
+  color: rgb(0, 0, 0, 0.75);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 4%;
+}
+
+.productdetail-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.EditDeleteBusiness {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+  /* margin-right: 50%; */
+}

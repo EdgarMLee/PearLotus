@@ -32,7 +32,6 @@ const deleteReview = (reviewId) => ({
   payload: reviewId,
 });
 
-
 // GET ALL REVIEWS
 export const getReviews = () => async (dispatch) => {
   const res = await fetch("/api/reviews/");
@@ -42,6 +41,8 @@ export const getReviews = () => async (dispatch) => {
   }
   return res;
 };
+
+// TODO: GET REVIEW BY ID THUNK
 
 //GET REVIEWS BY CURRENT USER
 export const UserReview = () => async (dispatch) => {
