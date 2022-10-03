@@ -17,7 +17,8 @@ function ProductDetail() {
   // const image = useSelector((state) => state.images[productId]);
   const reviews = useSelector((state) => state.reviews);
   const [isLoaded, setIsLoaded] = useState(false);
-
+  // const image = product?.image
+  // const [image, setImage] = useState()
   useEffect(() => {
     dispatch(getProductByid(productId)).then(() => setIsLoaded(true));
   }, []);
@@ -28,6 +29,7 @@ function ProductDetail() {
     await dispatch(deleteProductById(productId));
     await history.push("/");
   };
+  console.log("PRODUCT REVIEW ID", product.review_ids)
 
   const reviewed = () => {
     let reviewedUser = false;
@@ -45,12 +47,14 @@ function ProductDetail() {
     } else currentUser = false;
   }
 
-  return (
-    isLoaded && (
+if (!product) return null;
+
+return (
+    isLoaded && product && (
       <div className="productdetail-container">
         <div className="img-and-description">
           <div className="prod-detailpic">
-            <img className="prod-detailpic" src={product?.image["url"]} />
+            <img className="prod-detailpic" src={product?.image ? product.image.url : "https://static.vecteezy.com/system/resources/previews/005/331/807/original/skincare-products-nine-icons-vector.jpg"} />
           </div>
           <div className="description-buttons">
           <div className="divider">
@@ -79,6 +83,7 @@ function ProductDetail() {
           {product?.review_ids.length ? (
             product?.review_ids.map((reviewId) => (
               <ReviewCard key={reviewId} review={reviews[reviewId]} />
+              // console.log(reviewId)
               ))
               ) : (
                 <div style={{ paddingBottom: "25px" }}>No reviews. Yet...</div>

@@ -17,7 +17,8 @@ def all_products():
             image = db.session.query(Image).filter(Image.productId == productId).first()
             # print('!!!!!!!!!!!!!!', image.to_dict())
             product = product.to_dict()
-            product['image'] = image.to_dict()
+            if image:
+                product['image'] = image.to_dict()
             productarr.append(product)
     return {"products": productarr}
 
@@ -31,10 +32,11 @@ def get_product(id):
         image = db.session.query(Image).filter(Image.productId == productId).first()
         # image = db.session.query(Image).filter(Image.productId == productId).[1]
         # ^ Input that once you added seeder data to image for 2nd image
-        productbyId = product.to_dict()
-        productbyId["image"] = image.to_dict()
-        productarr.append(productbyId)
-    return {"products": productarr}
+        product = product.to_dict()
+        if image:
+            product["image"] = image.to_dict()
+        productarr.append(product)
+    return product
 
 # Create Product
 @product_routes.route("/", methods=["POST"])
@@ -66,6 +68,8 @@ def create_product():
 def edit_product(product_id):
     form = ProductForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
+    categories = Category.query.all()
+    form.category.choices=[(category.to_category(), category.to_categoryname())for category in categories]
     if form.validate_on_submit():
         product = Product.query.get(product_id)
         if product.owner_id == current_user.id:

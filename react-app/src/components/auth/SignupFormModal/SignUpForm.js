@@ -22,6 +22,8 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data);
       }
+    } else {
+      return setErrors(["password: Passwords do not match"]);
     }
   };
 
@@ -51,7 +53,7 @@ const SignUpForm = () => {
       <div className="signupTitle">Sign Up</div>
         <div className="signupErrors">
           {isSubmitted &&
-            errors.map((error, ind) => <div key={ind}>{error}</div>)}
+            errors.map((error, ind) => <div key={ind}>{error.split(": ")[1]}</div>)}
         </div>
         <div className="input-container">
           <div className="inputItem">

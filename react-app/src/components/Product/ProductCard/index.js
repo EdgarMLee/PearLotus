@@ -5,10 +5,11 @@ import { useParams } from "react-router-dom";
 import "./ProductCard.css";
 
 
-function ProductCard({ product, image }) {
+function ProductCard({ product }) {
   // const { imageId } = useParams
   // const sessionUser = useSelector(state => state.session.user);
   // const image = useSelector(state => state.images[imageId])
+  const image = product?.image
   return (
     <div className="card-container">
       <div className="product-card" to={`/products/${product.id}`}>
@@ -16,7 +17,7 @@ function ProductCard({ product, image }) {
           <Link
             className="product-card-image"
             to={`/products/${product.id}`}>
-              <img className="image-pic" src={product.image["url"]}/>
+              <img className="image-pic" src={image?.url}/>
             </Link>
         </div>
         <div className="product-card-info">

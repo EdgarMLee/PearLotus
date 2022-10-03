@@ -1,16 +1,26 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
 import EditReviewModal from "../EditReview/EditReview";
-import { deleteReviewById } from "../../../store/review";
+import { deleteReviewById, getReviews } from "../../../store/review";
 import "./ReviewCard.css";
 // import DisplayStars from "../DisplayStars";
 // import defaultImage from "../../../imgs/notyelpDefault.png";
 // import FooterAbout from "../../FooterLinks/Footer";
 
-function ReviewCard({ review }) {
+function ReviewCard() {
+  const allReviews = useSelector(state => state.reviews)
+  // DEFINE REVIEW BY ID HERE
+  const { reviewId } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+  const review = useSelector((state) => state.reviews[reviewId]);
+  console.log(review, "!!!!!!!!!!!!!")
+  useEffect(() => {
+    dispatch(getReviews())
+  }, [dispatch])
+
   const handleDeleteReview = async (e, id) => {
     e.preventDefault();
     await dispatch(deleteReviewById(id, review.productId));

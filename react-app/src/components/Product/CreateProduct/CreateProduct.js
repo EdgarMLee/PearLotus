@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createProduct } from "../../../store/product";
+import { getCategory } from "../../../store/category"
 
 function CreateProductForm({ closeModal }) {
   const dispatch = useDispatch();
@@ -37,6 +38,10 @@ function CreateProductForm({ closeModal }) {
       history.push(`/products/${newProduct.id}`);
     }
   };
+
+  useEffect(() => {
+    dispatch(getCategory())
+  }, [])
 
   useEffect(() => {
     const errors = [];
