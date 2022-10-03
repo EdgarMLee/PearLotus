@@ -64,7 +64,7 @@ function CreateProductForm({ closeModal }) {
   return (
     <form onSubmit={handleSubmit}>
       <div className="createProductBox">
-        <div className="createProductTitle">Create Your Product!</div>
+        <div className="createProductTitle">Create Your Product</div>
         {isSubmitted &&
           errors.map((error, ind) => (
             <div className="createErrors">
@@ -79,22 +79,22 @@ function CreateProductForm({ closeModal }) {
               type="text"
               value={name}
               className="nameInput"
-              placeholder=" "
+              placeholder="Name"
               onChange={(e) => setName(e.target.value)}
               required
             />
-            <label htmlFor="name">Name</label>
+            {/* <label htmlFor="name">Name</label> */}
             </div>
             <div className="inputInfo">
             <input
               type="integer"
               value={price}
               className="priceInput"
-              placeholder=" "
+              placeholder="Price"
               onChange={(e) => setPrice(e.target.value)}
               required
               />
-            <label htmlFor="price">Price</label>
+            {/* <label htmlFor="price">Price</label> */}
               </div>
 
                <div className='select-outer'>
@@ -121,24 +121,24 @@ function CreateProductForm({ closeModal }) {
               type="text"
               value={shortdescript}
               className="shortdescriptInput"
-              placeholder=" "
+              placeholder="Short Description"
               onChange={(e) => setShortdescript(e.target.value)}
               required
             />
-            <label htmlFor="shortdescript">Short Description</label>
+            {/* <label htmlFor="shortdescript">Short Description</label> */}
             </div>
               <div className="inputInfo desc-input">
             <textarea
               type="text"
               value={description}
               className="descriptionInput"
-              placeholder=" "
+              placeholder="Description"
               onChange={(e) => setDescription(e.target.value)}
               required
               />
-            <label htmlFor="description">Description</label>
+            {/* <label htmlFor="description">Description</label> */}
               </div>
-              <button name='submit' type='submit' className='submitButton'>
+              <button name='submit' type='submit' className='createProductButton'>
                 Create Product
               </button>
             </div>

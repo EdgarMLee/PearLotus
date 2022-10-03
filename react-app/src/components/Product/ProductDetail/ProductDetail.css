@@ -37,7 +37,7 @@
 .description-buttons {
   /* border: 1px solid red; */
   margin-left: 5%;
-  margin-top: 2%;
+  margin-top: 1.5%;
   margin-right: 10%;
 }
 
@@ -45,6 +45,13 @@
   font-size: 30px;
   color: rgb(0, 0, 0, 0.8);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.product-company {
+  font-size: 14px;
+  color: rgb(0, 0, 0, 0.8);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 1.5%;
 }
 
 .divLineDetail {
@@ -70,4 +77,12 @@
 .productdetail-container {
   display: flex;
   flex-direction: column;
+}
+
+.EditDeleteBusiness {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+  /* margin-right: 50%; */
 }

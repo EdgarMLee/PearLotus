@@ -1,0 +1,17 @@
+.writeReviewButton {
+  background-color: rgb(255, 105, 88);
+  color: white;
+  font-size: 14px;
+  border: none;
+  font-weight: 600;
+  height: 40px;
+  width: 130px;
+  transition: all 0.8s;
+}
+
+.writeReviewButton:hover {
+  cursor: pointer;
+  background-color: white;
+  color: rgb(255, 105, 88);
+  border: rgb(255, 105, 88) 1px solid;
+}

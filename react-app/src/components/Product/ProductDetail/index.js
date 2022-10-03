@@ -55,6 +55,7 @@ function ProductDetail() {
           <div className="description-buttons">
           <div className="divider">
             <div className="product-name">{product?.name}</div>
+            <div className="product-company">PEAR & LOTUS COLLECTION</div>
             <div className="divLineDetail"/>
             <div className="product-short">{product?.shortdescript}</div>
             <div className="product-description">{product?.description}</div>

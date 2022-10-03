@@ -27,7 +27,7 @@ function CreateReviewModal() {
   return (
     <>
       {currentUser && (
-        <button className='reviewDeleteButton' onClick={() => setShowModal(true)}>
+        <button className='writeReviewButton' onClick={() => setShowModal(true)}>
         Write Review
         </button>
         )}
