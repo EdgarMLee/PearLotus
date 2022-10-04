@@ -5,7 +5,7 @@ import { getProductByid, deleteProductById } from "../../../store/product";
 import EditProductModal from "../EditProduct";
 import CreateReviewModal from "../../Review/CreateReview";
 import ReviewCard from "../../Review/ReviewCard";
-import { allReviewsArray } from "../../../store/review";
+import { allReviewsArray, getReviews } from "../../../store/review";
 import "./ProductDetail.css";
 
 function ProductDetail() {
@@ -23,6 +23,7 @@ function ProductDetail() {
   // const [image, setImage] = useState()
   useEffect(() => {
     dispatch(getProductByid(productId)).then(() => setIsLoaded(true));
+    dispatch(getReviews())
   }, []);
 
   const handleDelete = async (e) => {

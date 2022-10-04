@@ -39,12 +39,13 @@ function ReviewCard({review}) {
           <div className="review-user-info">
             <div className="review-username">{review?.user?.username}</div>
             <div className="review-card-user-date">
-            {/* {new Date(review?.created_at).toLocaleDateString()} */}
+            {new Date(review?.created_at).toLocaleDateString()}
           </div>
           </div>
         </div>
         <div className="review-card-content">
           <div className="review-card-user-date">
+            <div>{review.stars} Stars</div>
             {/* <DisplayStars rating={review?.stars} /> */}
             {/* {new Date(review?.created_at).toLocaleDateString()} */}
           </div>

@@ -35,7 +35,7 @@ const deleteReview = (reviewId) => ({
 
 // GET ALL REVIEWS
 export const getReviews = () => async (dispatch) => {
-  const res = await fetch("/api/reviews/");
+  const res = await fetch("/api/review/");
   if (res.ok) {
     const reviews = await res.json();
     dispatch(getAll(reviews));
@@ -45,7 +45,7 @@ export const getReviews = () => async (dispatch) => {
 
 // TODO: GET REVIEW BY ID THUNK
 export const getReviewByid = (reviewId) => async (dispatch) => {
-  const res = await fetch(`/api/reviews/${reviewId}`);
+  const res = await fetch(`/api/review/${reviewId}`);
   if (res.ok) {
     const review = await res.json();
     dispatch(getAll(review))
@@ -56,7 +56,7 @@ export const getReviewByid = (reviewId) => async (dispatch) => {
 
 //GET REVIEWS BY CURRENT USER
 export const UserReview = () => async (dispatch) => {
-  const res = await fetch(`/api/reviews/current/`);
+  const res = await fetch(`/api/review/current/`);
   if (res.ok) {
     const reviews = await res.json();
     dispatch(getUsersReview(reviews));
@@ -66,7 +66,7 @@ export const UserReview = () => async (dispatch) => {
 
 //CREATE REVIEW
 export const createReview = (review) => async (dispatch) => {
-  const res = await fetch("/api/reviews/", {
+  const res = await fetch("/api/review/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -131,6 +131,7 @@ export const deleteReviewById = (id, productId) => async (dispatch) => {
   }
   return res;
 };
+
 //REDUCER
 export default function reviewReducer(state = {}, action) {
   let newState = { ...state };
