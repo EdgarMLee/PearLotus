@@ -9,6 +9,7 @@ import { authenticate } from './store/session';
 import ProductDetail from "./components/Product/ProductDetail"
 import ProductsPage from "./components/Product/ProductPage"
 import ReviewsByUser from './components/Review/ReviewsByUser';
+import FooterBottom from './components/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -45,6 +46,7 @@ function App() {
           <ReviewsByUser/>
         </Route>
       </Switch>
+      <FooterBottom loaded={loaded}/>
     </BrowserRouter>
   );
 }
