@@ -60,20 +60,20 @@ function ReviewCard({ review, product }) {
           <div className="review-text">{review?.description}</div>
           {review?.userId == sessionUser?.id ? (
             <>
-            <div className="editDeleteButton">
-              <button
-                className="editReviewButton"
-                onClick={() => setShowModal(true)}
+              <div className="editDeleteButton">
+                <button
+                  className="editReviewButton"
+                  onClick={() => setShowModal(true)}
                 >
-                Edit Review
-              </button>
-              <button
-                className="delete-rev"
-                onClick={(e) => handleDeleteReview(e, review?.id)}
-              >
-                Delete Review
-              </button>
-                </div>
+                  Edit Review
+                </button>
+                <button
+                  className="delete-rev"
+                  onClick={(e) => handleDeleteReview(e, review?.id)}
+                >
+                  Delete Review
+                </button>
+              </div>
             </>
           ) : null}
         </div>

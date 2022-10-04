@@ -60,7 +60,6 @@
 .my-reviews:hover {
   color: rgb(255, 100, 80);
   background-color: rgb(248, 248, 248);
-  /* border-radius: 15px; */
 }
 
 .login-button:hover,
@@ -85,11 +84,6 @@
   padding: 10px 5px;
   transition: all 0.8s;
 }
-
-/* .my-reviews:hover {
-  background-color: rgb(240, 240, 240);
-  color: rgb(255, 100, 80);
-} */
 
 .login-button,
 .signup-button {
