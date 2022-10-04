@@ -30,7 +30,7 @@ function ReviewForm() {
   return (
     <div className="reviewBox">
       <form onSubmit={handleSubmit} className="reviewForm">
-        <div className="reviewTitle">
+        <div className="createReviewTitle">
           <h2 className="reviewHTitle">Review</h2>
         </div>
         <div>

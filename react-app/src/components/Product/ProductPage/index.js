@@ -23,6 +23,7 @@ function ProductPage() {
             <ProductCard key={product?.id} product={product}/>
           ))}
         </div>
+        <div className="divLinesplash"/>
       </div>
     )
   )

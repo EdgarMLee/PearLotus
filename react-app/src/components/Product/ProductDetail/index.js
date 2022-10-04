@@ -87,13 +87,29 @@ return (
           {sessionUser && <CreateReviewModal productId={productId} />}
         </div>
         <div className="reviews-inner-container">
+          <div className="title-count">
+        <div className="reviewTitle">Reviews</div>
+        <div className="reviewCount">
+          <div className="fa-solid fa-star product-star"/>
+            </div>
+            <div className="avg-rating">
+              {product?.avg_rating}
+              </div>
+          {/* <div>
+            </div> */}
+            {product?.review_ids.length == 1 ? (
+            <div className="review-length"> · {product?.review_ids.length} review</div>
+            ) : (
+              <div className="review-length"> · {product?.review_ids.length} reviews</div>
+              )}
+              </div>
           {product?.review_ids.length ? (
             product?.review_ids.map((reviewId) => (
               <ReviewCard key={reviewId} review={reviews[reviewId]} />
               // console.log(reviewId)
               ))
               ) : (
-                <div style={{ paddingBottom: "25px" }}>No reviews. Yet...</div>
+                <div className="empty-review">No reviews. Yet...</div>
                 )}
           {/* {product?.review_ids.map((reviewId) => (
             <ReviewCard key={reviewId} review={reviews[reviewId]} />

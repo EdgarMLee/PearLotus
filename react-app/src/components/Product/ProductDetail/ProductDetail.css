@@ -114,3 +114,54 @@
   /* border: 1px solid red; */
   /* margin-right: 50%; */
 }
+
+.reviewTitle {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  font-weight: bolder;
+  border-bottom:rgb(255, 105, 88) 3px solid;
+  width: 68px;
+  color: rgb(255, 105, 88);
+  margin-bottom: 1%;
+  margin-left: 5.5%;
+  margin-top: 1%;
+  /* border: 1px solid red; */
+}
+
+.reviewCount {
+  margin-left: 0.7%;
+  font-size: 20px;
+  margin-top: 1%;
+}
+
+.title-count {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* border: 1px solid red; */
+}
+
+.avg-rating {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: rgb(0, 0, 0, 0.7);
+  margin-top: 1.13%;
+  margin-left: 0.3%;
+  margin-right: 0.4%;
+  /* border: 1px solid red; */
+}
+
+.review-length {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: rgb(0, 0, 0, 0.7);
+  margin-top: 1.13%;
+  /* border: 1px solid red; */
+}
+
+.empty-review {
+  margin-left: 5.5%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: rgb(0, 0, 0, 0.7);
+}

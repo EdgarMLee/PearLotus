@@ -25,7 +25,6 @@ function ReviewCard({review, product}) {
   };
     return (
       <div className="review-card">
-        <div className="reviewTitle">Reviews</div>
         {/* <div>{product.avg_rating}</div> */}
         <div className="review-user-container flex">
           {/* <div className="review-user-image">
@@ -46,7 +45,9 @@ function ReviewCard({review, product}) {
         <div className="review-card-content">
           <div className="review-card-user-date">
             <div className="review-stars">
-            {review?.stars}
+            <div className="stars-rating">
+              {review?.stars}
+              </div>
             <div className="fa-solid fa-star"/></div>
           </div>
           <div className="review-text">{review?.description}</div>
