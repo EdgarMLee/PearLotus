@@ -8,6 +8,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import ProductDetail from "./components/Product/ProductDetail"
 import ProductsPage from "./components/Product/ProductPage"
+import ReviewsByUser from './components/Review/ReviewsByUser';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -39,6 +40,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/' exact={true} >
         <ProductsPage />
+        </Route>
+        <Route path="my-reviews" exact={true}>
+          <ReviewsByUser/>
         </Route>
       </Switch>
     </BrowserRouter>
