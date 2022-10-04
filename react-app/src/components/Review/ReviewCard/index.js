@@ -10,15 +10,11 @@ import "./ReviewCard.css";
 // import defaultImage from "../../../imgs/notyelpDefault.png";
 // import FooterAbout from "../../FooterLinks/Footer";
 
-function ReviewCard({review}) {
+function ReviewCard({review, product}) {
   const allReviews = useSelector(state => state.reviews)
-  // DEFINE REVIEW BY ID HERE
-  // console.log("!!!!!!", review)
   const { reviewId } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
-  // const review = useSelector((state) => state.reviews[reviewId]);
-  console.log(review, "!!!!!!!!!!!!!")
   useEffect(() => {
     dispatch(getReviews())
   }, [dispatch])
@@ -29,6 +25,8 @@ function ReviewCard({review}) {
   };
     return (
       <div className="review-card">
+        <div className="reviewTitle">Reviews</div>
+        {/* <div>{product.avg_rating}</div> */}
         <div className="review-user-container flex">
           {/* <div className="review-user-image">
             <img
@@ -37,15 +35,19 @@ function ReviewCard({review}) {
               onError={(e) => e.target.src = defaultImage} />
           </div> */}
           <div className="review-user-info">
+            <div className="username-date">
             <div className="review-username">{review?.user?.username}</div>
-            <div className="review-card-user-date">
+            <div className="review-user-date">
             {new Date(review?.created_at).toLocaleDateString()}
           </div>
+            </div>
           </div>
         </div>
         <div className="review-card-content">
           <div className="review-card-user-date">
-            <div>{review.stars} Stars</div>
+            <div className="review-stars">
+            {review?.stars}
+            <div className="fa-solid fa-star"/></div>
             {/* <DisplayStars rating={review?.stars} /> */}
             {/* {new Date(review?.created_at).toLocaleDateString()} */}
           </div>

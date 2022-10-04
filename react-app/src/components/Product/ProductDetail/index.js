@@ -82,7 +82,7 @@ return (
         </div>
         </div>
         <div className="review-prod-Box">
-        <div className="reviews-header header">Reviews</div>
+        {/* <div className="reviews-header header">Reviews</div> */}
         <div className="createReview">
           {sessionUser && <CreateReviewModal productId={productId} />}
         </div>
