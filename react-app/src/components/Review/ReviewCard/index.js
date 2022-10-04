@@ -48,8 +48,6 @@ function ReviewCard({review, product}) {
             <div className="review-stars">
             {review?.stars}
             <div className="fa-solid fa-star"/></div>
-            {/* <DisplayStars rating={review?.stars} /> */}
-            {/* {new Date(review?.created_at).toLocaleDateString()} */}
           </div>
           <div className="review-text">{review?.description}</div>
           {review?.userId == sessionUser?.id ? (

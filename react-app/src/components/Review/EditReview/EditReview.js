@@ -38,15 +38,6 @@ const EditReview = ({ rev, closeModal }) => {
     <form onSubmit={handleSubmit} className="review-form">
       <div className="input-container">
         <div className="editreview-title">Edit A Review</div>
-        {/* <Rating
-          onClick={handleRating}
-          ratingValue={stars}
-          size={30}
-          transition
-          fillColor="gold"
-          allowHover={false}
-          emptyColor="gray"
-        /> */}
         <div className='reviewStars'>
         <input
           type="number"
