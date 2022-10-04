@@ -81,8 +81,8 @@ return (
         )}
         </div>
         </div>
+        <div className="divLineProduct"/>
         <div className="review-prod-Box">
-        {/* <div className="reviews-header header">Reviews</div> */}
         <div className="createReview">
           {sessionUser && <CreateReviewModal productId={productId} />}
         </div>
@@ -95,8 +95,6 @@ return (
             <div className="avg-rating">
               {product?.avg_rating}
               </div>
-          {/* <div>
-            </div> */}
             {product?.review_ids.length == 1 ? (
             <div className="review-length"> · {product?.review_ids.length} review</div>
             ) : (

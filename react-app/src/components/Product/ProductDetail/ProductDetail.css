@@ -34,11 +34,17 @@
   /* border: 1px solid red; */
 }
 
+.divLineProduct {
+  border-top: 1px solid rgba(225, 225, 225);
+  margin-bottom: 0.5%;
+  margin-top: 2%;
+}
+
 .description-buttons {
-  /* border: 1px solid red; */
   margin-left: 5%;
   margin-top: 1.5%;
   margin-right: 12.5%;
+  /* border: 1px solid red; */
 }
 
 .product-name {
