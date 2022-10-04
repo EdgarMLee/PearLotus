@@ -118,7 +118,6 @@
   display: flex;
   justify-content: space-between;
   /* border: 1px solid red; */
-  /* margin-right: 50%; */
 }
 
 .reviewTitle {
@@ -128,7 +127,6 @@
   border-bottom:rgb(255, 105, 88) 3px solid;
   width: 68px;
   color: rgb(255, 105, 88);
-  margin-bottom: 1%;
   margin-left: 5.5%;
   margin-top: 1%;
   /* border: 1px solid red; */

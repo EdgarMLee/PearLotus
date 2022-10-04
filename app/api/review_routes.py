@@ -26,7 +26,7 @@ def get_current():
     return { "reviews": [review.to_dict() for review in reviews] }
 
 #Create Review
-@review_routes.route('/', methods=['POST'])
+@review_routes.route('', methods=['POST'])
 @login_required
 def create_review():
     form = ReviewForm()
@@ -34,7 +34,7 @@ def create_review():
     if form.validate_on_submit():
         new_review = Review(
                         productId=form.productId.data,
-                        userId=form.userId.data,
+                        userId=current_user.id,
                         stars=form.stars.data,
                         description=form.description.data,
                         )
@@ -46,6 +46,7 @@ def create_review():
 
 #Update Review
 @review_routes.route('/<int:id>', methods=['PUT'])
+@login_required
 def update_review(id):
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']

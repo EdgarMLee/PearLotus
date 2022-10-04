@@ -18,6 +18,8 @@ function ProductDetail() {
   const product = useSelector((state) => state.products[productId]);
   // const image = useSelector((state) => state.images[productId]);
   const reviews = useSelector((state) => state.reviews);
+  // console.log("reviews!!!!!!!!", reviews[5],reviews[42])
+  // console.log("reviews!!!!!!!!", product.review_ids)
   const [isLoaded, setIsLoaded] = useState(false);
   // const image = product?.image
   // const [image, setImage] = useState()
@@ -104,14 +106,10 @@ return (
           {product?.review_ids.length ? (
             product?.review_ids.map((reviewId) => (
               <ReviewCard key={reviewId} review={reviews[reviewId]} />
-              // console.log(reviewId)
               ))
               ) : (
                 <div className="empty-review">No reviews. Yet...</div>
                 )}
-          {/* {product?.review_ids.map((reviewId) => (
-            <ReviewCard key={reviewId} review={reviews[reviewId]} />
-          ))} */}
           </div>
         </div>
       </div>

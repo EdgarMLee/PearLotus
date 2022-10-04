@@ -8,9 +8,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 8%;
   /* border: 1px red solid; */
-  /* justify-content: flex-end; */
-  /* margin-bottom: 1%; */
 }
 
 .review-username {
@@ -23,6 +22,7 @@
 .review-user-date {
   font-size: 14px;
   margin-left: 5%;
+  margin-top: 0.4%;
 }
 
 .review-stars {
@@ -47,11 +47,59 @@
 
 .review-text {
   font-size: 14px;
-  margin-bottom: 10%;
+  margin-bottom: 3%;
 }
 
 .review-user-date,
 .review-text {
   font-family: Arial, Helvetica, sans-serif;
   color: rgb(0, 0, 0, 0.6);
+}
+
+.delete-rev {
+  background-color: rgb(255, 105, 88);
+  color: white;
+  font-size: 14px;
+  border: none;
+  font-weight: 600;
+  height: 35px;
+  width: 110px;
+  transition: all 0.8s;
+  margin-top: 1.5%;
+  margin-bottom: 0.8%;
+}
+
+.delete-rev:hover {
+  cursor: pointer;
+  background-color: white;
+  color: rgb(255, 105, 88);
+  border: rgb(255, 105, 88) 1px solid;
+}
+
+.editReviewButton {
+  background-color: rgb(255, 105, 88);
+  color: white;
+  font-size: 14px;
+  border: none;
+  font-weight: 600;
+  height: 35px;
+  width: 110px;
+  transition: all 0.8s;
+  margin-top: 1.5%;
+  margin-bottom: 0.8%;
+  /* margin-left: 2%; */
+}
+
+.editReviewButton:hover {
+  cursor: pointer;
+  background-color: white;
+  color: rgb(255, 105, 88);
+  border: rgb(255, 105, 88) 1px solid;
+}
+
+.editDeleteButton {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4%;
 }

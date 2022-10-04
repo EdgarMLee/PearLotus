@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createReview } from "../../../store/review";
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./CreateReview.css";
 
 function ReviewForm() {
@@ -10,10 +10,13 @@ function ReviewForm() {
   const [description, setDescription] = useState("");
   const [stars, setStars] = useState("");
   const [errors, setErrors] = useState([]);
+  const sessionUser = useSelector(state => state.session.user)
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const reviewInfo = {
+      productId,
+      userId: sessionUser.id,
       description,
       stars,
     };
@@ -21,7 +24,6 @@ function ReviewForm() {
     setErrors([]);
     dispatch(createReview(reviewInfo, productId)).catch(async (res) => {
       const data = await res.json();
-      // console.log('data', data)
       if (data && data.errors) setErrors(data.errors);
       else if (data && data.message) setErrors([data.message]);
     });
