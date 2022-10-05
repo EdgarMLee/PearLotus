@@ -16,10 +16,7 @@ function ProductDetail() {
   const reviewsObj = useSelector(allReviewsArray)
   const sessionUser = useSelector((state) => state.session.user);
   const product = useSelector((state) => state.products[productId]);
-  // const image = useSelector((state) => state.images[productId]);
   const reviews = useSelector((state) => state.reviews);
-  // console.log("reviews!!!!!!!!", reviews[5],reviews[42])
-  // console.log("reviews!!!!!!!!", product.review_ids)
   const [isLoaded, setIsLoaded] = useState(false);
   // const image = product?.image
   // const [image, setImage] = useState()
@@ -86,7 +83,11 @@ return (
         <div className="divLineProduct"/>
         <div className="review-prod-Box">
         <div className="createReview">
-          {sessionUser && <CreateReviewModal productId={productId} />}
+          {sessionUser &&
+          sessionUser.id !== product?.owner_id &&
+          reviewed() === false && (
+            <CreateReviewModal productId={productId} />
+          )}
         </div>
         <div className="reviews-inner-container">
           <div className="title-count">
