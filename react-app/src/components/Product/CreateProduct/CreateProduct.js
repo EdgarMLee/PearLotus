@@ -29,7 +29,6 @@ function CreateProductForm({ closeModal }) {
       shortdescript,
       description,
     };
-
     const newProduct = await dispatch(createProduct(productInfo));
     if (newProduct && newProduct.errors) {
       setErrors(newProduct.errors);

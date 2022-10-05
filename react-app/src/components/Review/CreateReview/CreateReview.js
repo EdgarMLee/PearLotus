@@ -35,7 +35,7 @@ function ReviewForm() {
     if (stars < 1) errors.push("stars: *Stars must be at least 1!");
     if (stars > 5) errors.push("stars: *Stars must be at most 5!");
     if (description.length < 3) errors.push("description: *Description must be more than 3 characters!");
-    if (description.length > 200) errors.push("description: *Description must not be more than 200 characters!");
+    if (description.length > 255) errors.push("description: *Description must not be more than 255 characters!");
   })
 
   return (
@@ -45,7 +45,9 @@ function ReviewForm() {
           <h2 className="reviewHTitle">Review</h2>
         </div>
         <div>
-          {errors.map((error, idx) => (
+          {/* TODO: FIX ERROR HANDLERS TO BE VISIBLE HERE */}
+          {isSubmitted &&
+          errors.map((error, idx) => (
             <div className="reviewErrors">
             <div key={idx} className="reviewError">
               {error.split(": ")[1]}
