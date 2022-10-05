@@ -10,6 +10,16 @@
   margin-bottom: 1.2%;
 }
 
+.navTitle {
+  color: white;
+  font-size: 15px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: italic;
+  margin-left: 7.5%;
+  text-decoration: none;
+  width: 800px;
+}
+
 .navbar-container {
   display: flex;
   justify-content: space-between;
