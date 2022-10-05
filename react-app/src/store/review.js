@@ -43,7 +43,6 @@ export const getReviews = () => async (dispatch) => {
   return res;
 };
 
-// TODO: GET REVIEW BY ID THUNK
 export const getReviewByid = (reviewId) => async (dispatch) => {
   const res = await fetch(`/api/review/${reviewId}`);
   if (res.ok) {
@@ -56,7 +55,7 @@ export const getReviewByid = (reviewId) => async (dispatch) => {
 
 //GET REVIEWS BY CURRENT USER
 export const AllUserReviews = () => async (dispatch) => {
-  const res = await fetch(`/api/review/current/`);
+  const res = await fetch(`/api/review/current`);
   if (res.ok) {
     const reviews = await res.json();
     dispatch(getUsersReview(reviews));

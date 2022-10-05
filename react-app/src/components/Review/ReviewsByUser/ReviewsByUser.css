@@ -1,0 +1,38 @@
+.empty-height {
+  height:1000px;
+}
+
+.MyReviews {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.ReviewsTitle {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  margin-bottom: 2%;
+  transition: all 1s;
+  font-weight: bold;
+  width: 120px;
+  margin-left: 47%;
+  /* border: 1px solid red; */
+}
+
+.ReviewsTitle:hover {
+  color: rgb(255, 100, 80);
+}
+
+.myreviews-card {
+  border: 1px solid rgba(225, 225, 225);
+  border-radius: 8px;
+  width: 400px;
+  margin-bottom: 2.5%;
+  margin-left: 2%;
+}
