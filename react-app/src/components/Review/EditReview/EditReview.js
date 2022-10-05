@@ -50,7 +50,7 @@ const EditReview = ({ review, closeModal }) => {
           <div className="editreview-title">Edit Review</div>
           {/* TODO: FIX ERROR HANDLERS TO BE VISIBLE HERE */}
           {isSubmitted &&
-            errors.map((error, idx) => (
+            Object.values(errors).map((error, idx) => (
               <div className="reviewErrors">
                 <div key={idx} className="reviewError">
                   {error.split(": ")[1]}
