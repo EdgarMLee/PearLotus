@@ -6,7 +6,7 @@ const getAllCat = (categories) => ({
 });
 
 export const getCategory = () => async (dispatch) => {
-  const res = await fetch("/api/categories");
+  const res = await fetch("/api/categories/");
   if (res.ok) {
     const categories = await res.json();
     // console.log(categories, "!!!!!!!!!!!!!!!!!")
