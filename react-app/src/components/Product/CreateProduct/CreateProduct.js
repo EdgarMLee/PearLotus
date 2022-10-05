@@ -45,24 +45,15 @@ function CreateProductForm({ closeModal }) {
 
   useEffect(() => {
     const errors = [];
-    if (name.length > 50) {
-      errors.push("name: Name must be less than 50 characters");
-    }
-    if (name.length < 5) {
-      errors.push("name: Name must be at least 5 characters");
-    }
-    if (price > 500) {
-      errors.push("price: Price is too high!");
-    }
-    if (price <= 0) {
-      errors.push("price: Price is too low!");
-    }
-    if (shortdescript.length > 70) {
-      errors.push("shortdescript: Short Description is too long!");
-    }
-    if (description.length > 255) {
-      errors.push("description: Description is too long!");
-    }
+    if (name.length > 50) errors.push("name: *Name must be less than 50 characters");
+    if (name.length < 5) errors.push("name: *Name must be at least 5 characters");
+    if (price > 500) errors.push("price: *Price is too high!");
+    if (price <= 0) errors.push("price: *Price is too low!");
+    // if (typeof price !== Number) errors.push("price: *Price must be a number")
+    if (shortdescript.length > 200) errors.push("shortdescript: *Short Description is too long!");
+    if (shortdescript.length < 5) errors.push("shortdescript: *Short Description must be at least 5 characters!");
+    if (description.length > 850) errors.push("description: *Description is too long!");
+    if (description.length < 5) errors.push("description: *Description must be at least 5 characters!");
     setErrors(errors);
   }, [name, price, shortdescript, description]);
 
@@ -108,6 +99,7 @@ function CreateProductForm({ closeModal }) {
               name="category"
               className="product-form-select"
               onChange={(e) => setCategory(e.target.value)}
+              required
             >
               <option disabled selected value={category}>
                 Category

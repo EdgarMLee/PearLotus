@@ -28,24 +28,14 @@ function ProductEditForm({ closeModal }) {
 
   useEffect(() => {
     const errors = [];
-    if (name.length > 50) {
-      errors.push("name: Name must be less than 50 characters");
-    }
-    if (name.length < 5) {
-      errors.push("name: Name must be at least 5 characters");
-    }
-    if (price > 500) {
-      errors.push("price: Price is too high!");
-    }
-    if (price <= 0) {
-      errors.push("price: Price is too low!");
-    }
-    if (shortdescript.length > 500) {
-      errors.push("shortdescript: Short Description is too long!");
-    }
-    if (description.length > 1000) {
-      errors.push("description: Description is too long!");
-    }
+    if (name.length > 50) errors.push("name: *Name must be less than 50 characters!");
+    if (name.length < 5) errors.push("name: *Name must be at least 5 characters!");
+    if (price > 500) errors.push("price: *Price cannot be over 500!");
+    if (price < 1) errors.push("price: *Price is too low!");
+    if (shortdescript.length > 200) errors.push("shortdescript: *Short Description is too long!");
+    if (shortdescript.length < 5) errors.push("shortdescript: *Short Description must be at least 5 characters!");
+    if (description.length > 850) errors.push("description: *Description is too long!");
+    if (description.length < 5) errors.push("description: *Description must be at least 5 characters!");
     setErrors(errors);
   }, [name, price, shortdescript, description]);
 
@@ -85,6 +75,7 @@ function ProductEditForm({ closeModal }) {
               <div className="editProductTitle">Update Your Product</div>
               {isSubmitted &&
                 errors.map((error, ind) => (
+                  // if (error.split(":")[0] === 'Name')
                   <div className="editErrors">
                     <div key={ind} className="editError">
                       {error.split(": ")[1]}
@@ -122,6 +113,7 @@ function ProductEditForm({ closeModal }) {
                     className="edit-product"
                     onChange={(e) => setCategory(e.target.value)}
                     value={category}
+                    required
                   >
                     {categories?.map((category) => {
                       // console.log("!!!!!!!!", categories);
