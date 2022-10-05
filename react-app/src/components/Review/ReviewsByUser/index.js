@@ -27,12 +27,14 @@ const ReviewsByUser = () => {
         <div className="myreviewsBox">
           <div className="ReviewsTitle">My Reviews</div>
           <div className="emptyBorder" />
+          <div className="empty-height">
           <div className="MyReviews">
             {userReviews.map((review, i) => (
               <div className="myreviews-card">
                 <ReviewCard review={review} />
               </div>
             ))}
+            </div>
           </div>
         </div>
       ) : (

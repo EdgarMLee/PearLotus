@@ -1,5 +1,5 @@
 .review-card {
-  border: 1px solid red;
+  border-bottom: 1px solid rgba(225, 225, 225);
   margin-left: 5.5%;
   max-width: 400px;
 }
@@ -9,7 +9,6 @@
   flex-direction: row;
   justify-content: space-between;
   margin-top: 8%;
-  /* border: 1px red solid; */
 }
 
 .review-username {
