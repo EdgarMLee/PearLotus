@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import LoginFormModal from "../auth/LoginFormModal";
 import SignUpFormModal from "../auth/SignupFormModal";
@@ -17,7 +17,13 @@ const NavBar = ({ loaded }) => {
 
   return (
     <nav>
-      <div className="salmon-top"/>
+      <div className="salmon-top">
+      <div className="navTitle">
+        <Link to={`/products/6`} className="navTitle">
+        Get our #1 Bestselling Wild Dew Treatment Essence while supplies last! Use code 'PearLotus' for 20% off!
+        </Link>
+        </div>
+      </div>
       <div className="navbar-container">
         <div className="empty-div"></div>
         <div className="home-button">

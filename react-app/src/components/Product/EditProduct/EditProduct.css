@@ -26,6 +26,11 @@
   /* border: 1px solid red; */
 }
 
+.editError {
+  color: red;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 .editprodbox {
   overflow-y: scroll;
 }
