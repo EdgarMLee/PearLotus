@@ -24,7 +24,7 @@ Clone of Peach & Lily skincare website
 
 ## How to run Pear & Lotus Locally:
 * Clone the repository in your terminal: ```git clone https://github.com/EdgarMLee/PearLotus.git```
-* cd into PearLotus folder and run ```pipenv install```
+* cd into PearLotus folder and run ```pipenv install -r requirements.txt```
 * Open two terminal paths for both PearLotus and react-app.
 * Under PearLotus run ```pipenv shell``` then ```flask run```, for react-app run ```npm install```
 * Create a ```.env``` file under the root of the backend folder with the following contents:
