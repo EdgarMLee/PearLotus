@@ -1,30 +1,25 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-// import { Rating } from "react-simple-star-rating";
 import "./EditReview.css";
 import * as reviewActions from "../../../store/review";
 
-const EditReview = ({ rev, closeModal }) => {
-  // const productId = rev?.productId;
+const EditReview = ({ review, closeModal }) => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-  const [stars, setStars] = useState(rev?.stars * 20);
-  const [description, setDescription] = useState(rev?.description);
+  const [stars, setStars] = useState(review?.stars);
+  const [description, setDescription] = useState(review?.description);
   const [errors, setErrors] = useState([]);
-  // const handleRating = (rate) => {
-  //   setStars(rate);
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const info = {
-      user_id: sessionUser.id,
-      stars: stars / 20,
+      userId: sessionUser.id,
+      productId: review.productId,
+      stars,
       description,
-      productId: rev.productId,
     };
 
-    const data = await dispatch(reviewActions.editReview(info, rev.id));
+    const data = await dispatch(reviewActions.editReview(info, review.id));
     if (data && data.errors) {
       setErrors(data.errors);
     } else {
@@ -35,34 +30,26 @@ const EditReview = ({ rev, closeModal }) => {
   };
 
   return (
+    <div className="editReviewBox">
     <form onSubmit={handleSubmit} className="review-form">
       <div className="input-container">
-        <div className="editreview-title">Edit A Review</div>
-        {/* <Rating
-          onClick={handleRating}
-          ratingValue={stars}
-          size={30}
-          transition
-          fillColor="gold"
-          allowHover={false}
-          emptyColor="gray"
-        /> */}
-        <div className='reviewStars'>
-        <input
-          type="number"
-          placeholder='Rate from 1-5 Stars'
-          min="0"
-          max="5"
-          className='userStar'
-          value={stars}
-          onChange={(e) => setStars(e.target.value)}
-          required
-          />
-      </div>
-        <div className="inputItem">
+        <div className="editreview-title">Edit Review</div>
+        <div className="reviewStars">
           <input
-            className="make-bigger"
-            placeholder=" "
+            type="number"
+            placeholder="Rate from 1-5 Stars"
+            min="0"
+            max="5"
+            className="userStar"
+            value={stars}
+            onChange={(e) => setStars(e.target.value)}
+            required
+          />
+        </div>
+        <div className="inputItem">
+          <textarea
+            className="review-descript"
+            placeholder="Description"
             value={description}
             onChange={(e) => {
               const textValue = e.target.value;
@@ -73,7 +60,7 @@ const EditReview = ({ rev, closeModal }) => {
             }}
             required
           />
-          <label className="review-body">Review Description</label>
+          {/* <label className="review-body">Review Description</label> */}
         </div>
         <button
           className="submitButton-review"
@@ -84,6 +71,7 @@ const EditReview = ({ rev, closeModal }) => {
         </button>
       </div>
     </form>
+    </div>
   );
 };
 

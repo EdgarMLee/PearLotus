@@ -5,7 +5,7 @@ import { getProductByid, deleteProductById } from "../../../store/product";
 import EditProductModal from "../EditProduct";
 import CreateReviewModal from "../../Review/CreateReview";
 import ReviewCard from "../../Review/ReviewCard";
-import { allReviewsArray } from "../../../store/review";
+import { allReviewsArray, getReviews } from "../../../store/review";
 import "./ProductDetail.css";
 
 function ProductDetail() {
@@ -18,11 +18,14 @@ function ProductDetail() {
   const product = useSelector((state) => state.products[productId]);
   // const image = useSelector((state) => state.images[productId]);
   const reviews = useSelector((state) => state.reviews);
+  // console.log("reviews!!!!!!!!", reviews[5],reviews[42])
+  // console.log("reviews!!!!!!!!", product.review_ids)
   const [isLoaded, setIsLoaded] = useState(false);
   // const image = product?.image
   // const [image, setImage] = useState()
   useEffect(() => {
     dispatch(getProductByid(productId)).then(() => setIsLoaded(true));
+    dispatch(getReviews())
   }, []);
 
   const handleDelete = async (e) => {
@@ -80,23 +83,33 @@ return (
         )}
         </div>
         </div>
+        <div className="divLineProduct"/>
         <div className="review-prod-Box">
-        <div className="reviews-header header">Reviews</div>
         <div className="createReview">
           {sessionUser && <CreateReviewModal productId={productId} />}
         </div>
         <div className="reviews-inner-container">
+          <div className="title-count">
+        <div className="reviewTitle">Reviews</div>
+        <div className="reviewCount">
+          <div className="fa-solid fa-star product-star"/>
+            </div>
+            <div className="avg-rating">
+              {product?.avg_rating}
+              </div>
+            {product?.review_ids.length == 1 ? (
+            <div className="review-length"> · {product?.review_ids.length} review</div>
+            ) : (
+              <div className="review-length"> · {product?.review_ids.length} reviews</div>
+              )}
+              </div>
           {product?.review_ids.length ? (
             product?.review_ids.map((reviewId) => (
               <ReviewCard key={reviewId} review={reviews[reviewId]} />
-              // console.log(reviewId)
               ))
               ) : (
-                <div style={{ paddingBottom: "25px" }}>No reviews. Yet...</div>
+                <div className="empty-review">No reviews. Yet...</div>
                 )}
-          {/* {product?.review_ids.map((reviewId) => (
-            <ReviewCard key={reviewId} review={reviews[reviewId]} />
-          ))} */}
           </div>
         </div>
       </div>

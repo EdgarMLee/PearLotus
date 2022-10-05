@@ -7,6 +7,9 @@
   height: 40px;
   width: 130px;
   transition: all 0.8s;
+  margin-left: 5.5%;
+  margin-top: 1.5%;
+  margin-bottom: 0.8%;
 }
 
 .writeReviewButton:hover {

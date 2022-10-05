@@ -37,4 +37,5 @@ class Product(db.Model):
       # "image_ids": [image.id for image in self.images],
       # "cart_ids": [cart.id for cart in self.cart],
       "avg_rating": (sum([review.stars for review in self.reviews]) / len(self.reviews)) if len(self.reviews) > 0 else 0
+      
     }
