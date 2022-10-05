@@ -39,11 +39,11 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+        <ProtectedRoute path="/my-reviews" exact={true}>
+          <ReviewsByUser/>
+        </ProtectedRoute>
         <Route path='/' exact={true} >
         <ProductsPage />
-        </Route>
-        <Route path="my-reviews" exact={true}>
-          <ReviewsByUser/>
         </Route>
       </Switch>
       <FooterBottom loaded={loaded}/>

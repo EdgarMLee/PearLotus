@@ -79,6 +79,7 @@ function ProductEditForm({ closeModal }) {
     isLoaded && (
       <div className="editProductBox">
         <>
+        <div className="editprodbox">
           <form onSubmit={handleSubmit} className="editForm">
             <div className="editProductBox">
               <div className="editProductTitle">Update Your Product</div>
@@ -163,6 +164,7 @@ function ProductEditForm({ closeModal }) {
               </div>
             </div>
           </form>
+        </div>
         </>
       </div>
     )

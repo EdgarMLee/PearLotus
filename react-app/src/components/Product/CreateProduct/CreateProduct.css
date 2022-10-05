@@ -3,9 +3,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* padding: 30px 60px; */
   height: 500px;
   width: 450px;
+  overflow-y: scroll;
 }
 
 .createProductTitle {

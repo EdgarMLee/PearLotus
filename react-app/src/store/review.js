@@ -55,7 +55,7 @@ export const getReviewByid = (reviewId) => async (dispatch) => {
 
 //GET REVIEWS BY CURRENT USER
 export const AllUserReviews = () => async (dispatch) => {
-  const res = await fetch(`/api/review/current/`);
+  const res = await fetch(`/api/review/current`);
   if (res.ok) {
     const reviews = await res.json();
     dispatch(getUsersReview(reviews));
