@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import "./ProductCard.css";
 
 
@@ -10,6 +10,10 @@ function ProductCard({ product }) {
   // const sessionUser = useSelector(state => state.session.user);
   // const image = useSelector(state => state.images[imageId])
   const image = product?.image
+  const history = useHistory();
+  function redirectProduct(productId) {
+    history.push(`/products/${productId}`)
+  }
   return (
     <div className="card-container">
       <div className="product-card" to={`/products/${product.id}`}>
@@ -26,6 +30,9 @@ function ProductCard({ product }) {
             to={`/products/${product.id}`}>
               {product.name}
             </Link>
+            {/* <div className="product-card-name" onClick={() => redirectProduct(product.id)}>
+            {product.name}
+            </div> */}
         </div>
         <div className="product-shortdescript">
           {product.shortdescript}

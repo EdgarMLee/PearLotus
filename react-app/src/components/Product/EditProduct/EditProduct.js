@@ -28,7 +28,7 @@ function ProductEditForm({ closeModal }) {
 
   useEffect(() => {
     const errors = [];
-    if (name.length > 34) errors.push("name: *Name must be less than 35 characters!");
+    if (name.length > 49) errors.push("name: *Name must be less than 49 characters!");
     if (name.length < 5) errors.push("name: *Name must be at least 5 characters!");
     if (price > 500) errors.push("price: *Price cannot be over 500!");
     if (price < 1) errors.push("price: *Price must be over 1 or under 500!");

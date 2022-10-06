@@ -15,10 +15,15 @@
 }
 
 .product-card {
-  /* border: 1px solid red; */
   max-width: 300px;
   display: flex;
   flex-direction: column;
+  /* border: 1px solid red; */
+}
+
+.product-card-info {
+  word-wrap: break-word;
+  /* border: 1px solid red; */
 }
 
 .product-card-name {
@@ -27,12 +32,18 @@
   font-family: "UntitledSans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
   display: flex;
+  /* flex-wrap: wrap; */
   align-items: center;
   justify-content:flex-start;
   margin-bottom: 3%;
   margin-left: 4%;
   margin-top: 2%;
   word-wrap: break-word;
+  width: 270px;
+  height: fit-content;
+  word-break: break-word;
+  /* white-space: pre-wrap; */
+  /* border: 1px solid red; */
 }
 
 .product-shortdescript {
