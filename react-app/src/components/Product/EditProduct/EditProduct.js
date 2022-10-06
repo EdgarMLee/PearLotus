@@ -32,7 +32,7 @@ function ProductEditForm({ closeModal }) {
     if (name.length < 5) errors.push("name: *Name must be at least 5 characters!");
     if (price > 500) errors.push("price: *Price cannot be over 500!");
     if (price < 1) errors.push("price: *Price must be over 1 or under 500!");
-    if (shortdescript.length > 95) errors.push("shortdescript: *Short Description must be at most 95 characters!");
+    if (shortdescript.length > 109) errors.push("shortdescript: *Short Description must be at most 110 characters!");
     if (shortdescript.length < 5) errors.push("shortdescript: *Short Description must be at least 5 characters!");
     if (description.length > 850) errors.push("description: *Description must be at most 850 characters!");
     if (description.length < 5) errors.push("description: *Description must be at least 5 characters!");
@@ -73,8 +73,7 @@ function ProductEditForm({ closeModal }) {
           <form onSubmit={handleSubmit} className="editForm">
             <div className="editProductBox">
               <div className="editProductTitle">Update Your Product</div>
-              {
-                errors.map((error, ind) => (
+              {errors.map((error, ind) => (
                   // if (error.split(":")[0] === 'Name')
                   <div className="editErrors">
                     <div key={ind} className="editError">
@@ -96,7 +95,7 @@ function ProductEditForm({ closeModal }) {
                 </div>
                 <div className="inputInfo">
                   <input
-                    type="integer"
+                    type="number"
                     value={price}
                     className="priceInput"
                     placeholder="Price"

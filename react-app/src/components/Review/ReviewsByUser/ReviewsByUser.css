@@ -25,7 +25,8 @@
   /* border: 1px solid red; */
 }
 
-.ReviewsTitle:hover {
+.ReviewsTitle:hover,
+.empty-reviews:hover {
   color: rgb(255, 100, 80);
 }
 
@@ -35,4 +36,23 @@
   width: 400px;
   margin-bottom: 2.5%;
   margin-left: 2%;
+}
+
+.empty-reviews {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  transition: all 1s;
+}
+
+.empty-rimage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 670px;
+  width: 1500px;
+  margin-left: 12%;
 }
