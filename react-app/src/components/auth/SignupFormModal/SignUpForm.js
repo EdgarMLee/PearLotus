@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../../store/session";
-import "./SignUpForm.css"
+import "./SignUpForm.css";
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -23,9 +23,17 @@ const SignUpForm = () => {
         setErrors(data);
       }
     } else {
-      return setErrors(["password: Passwords do not match"]);
+      return setErrors(["password: Passwords do not match!"]);
     }
   };
+
+  useEffect(() => {
+    const errors = [];
+    if (username.length < 5) errors.push("username: *Username must be at least 5 characters!")
+    if (username.length > 50) errors.push("username: *Username must be less than 50 characters!")
+    if (!email.includes("@") || !email.includes(".com")) errors.push("email: *Email must be valid!")
+    setErrors(errors)
+  }, [username, email]);
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -50,10 +58,12 @@ const SignUpForm = () => {
   return (
     <form onSubmit={onSignUp}>
       <div className="signUpBox">
-      <div className="signupTitle">Sign Up</div>
+        <div className="signupTitle">Sign Up</div>
         <div className="signupErrors">
-          {isSubmitted &&
-            errors.map((error, ind) => <div key={ind}>{error.split(": ")[1]}</div>)}
+          {
+            errors.map((error, ind) => (
+              <div key={ind}>{error.split(": ")[1]}</div>
+            ))}
         </div>
         <div className="input-container">
           <div className="inputItem">
@@ -105,9 +115,13 @@ const SignUpForm = () => {
             ></input>
           </div>
           <div className="signUpButtondiv">
-          <button type="submit" className="signUpButton">
-            Sign Up
-          </button>
+            <button
+              type="submit"
+              className="signUpButton"
+              disabled={errors.length > 0}
+            >
+              Sign Up
+            </button>
           </div>
         </div>
       </div>
