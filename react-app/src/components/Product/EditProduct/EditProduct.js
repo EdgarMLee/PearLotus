@@ -31,10 +31,10 @@ function ProductEditForm({ closeModal }) {
     if (name.length > 50) errors.push("name: *Name must be less than 50 characters!");
     if (name.length < 5) errors.push("name: *Name must be at least 5 characters!");
     if (price > 500) errors.push("price: *Price cannot be over 500!");
-    if (price < 1) errors.push("price: *Price is too low!");
-    if (shortdescript.length > 200) errors.push("shortdescript: *Short Description is too long!");
+    if (price < 1) errors.push("price: *Price must be over 1 or under 500!");
+    if (shortdescript.length > 95) errors.push("shortdescript: *Short Description must be at most 95 characters!");
     if (shortdescript.length < 5) errors.push("shortdescript: *Short Description must be at least 5 characters!");
-    if (description.length > 850) errors.push("description: *Description is too long!");
+    if (description.length > 850) errors.push("description: *Description must be at most 850 characters!");
     if (description.length < 5) errors.push("description: *Description must be at least 5 characters!");
     setErrors(errors);
   }, [name, price, shortdescript, description]);
@@ -73,7 +73,7 @@ function ProductEditForm({ closeModal }) {
           <form onSubmit={handleSubmit} className="editForm">
             <div className="editProductBox">
               <div className="editProductTitle">Update Your Product</div>
-              {isSubmitted &&
+              {
                 errors.map((error, ind) => (
                   // if (error.split(":")[0] === 'Name')
                   <div className="editErrors">
@@ -100,6 +100,8 @@ function ProductEditForm({ closeModal }) {
                     value={price}
                     className="priceInput"
                     placeholder="Price"
+                    min="1"
+                    max="500"
                     onChange={(e) => setPrice(e.target.value)}
                     required
                   />
@@ -150,7 +152,11 @@ function ProductEditForm({ closeModal }) {
                   />
                   {/* <label htmlFor="description">Description</label> */}
                 </div>
-                <button name="submit" type="submit" className="updateButton">
+                <button
+                name="submit"
+                type="submit"
+                className="updateButton"
+                disabled={errors.length > 0}>
                   Update Product
                 </button>
               </div>

@@ -46,9 +46,8 @@ function CreateProductForm({ closeModal }) {
     const errors = [];
     if (name.length > 50) errors.push("name: *Name must be less than 50 characters");
     if (name.length < 5) errors.push("name: *Name must be at least 5 characters");
-    if (price > 500) errors.push("price: *Price is too high!");
-    if (price <= 0) errors.push("price: *Price is too low!");
-    // if (typeof price !== Number) errors.push("price: *Price must be a number")
+    if (price > 500) errors.push("price: *Price cannot be over 500!");
+    if (price < 1) errors.push("price: *Price must be over 1 or under 500!");
     if (shortdescript.length > 200) errors.push("shortdescript: *Short Description is too long!");
     if (shortdescript.length < 5) errors.push("shortdescript: *Short Description must be at least 5 characters!");
     if (description.length > 850) errors.push("description: *Description is too long!");
@@ -60,7 +59,7 @@ function CreateProductForm({ closeModal }) {
     <form onSubmit={handleSubmit}>
       <div className="createProductBox">
         <div className="createProductTitle">Create Your Product</div>
-        {isSubmitted &&
+        {
           errors.map((error, ind) => (
             <div className="createErrors">
               <div key={ind} className="createError">
@@ -137,7 +136,11 @@ function CreateProductForm({ closeModal }) {
             />
             {/* <label htmlFor="description">Description</label> */}
           </div>
-          <button name="submit" type="submit" className="createProductButton">
+          <button
+          name="submit"
+          type="submit"
+          className="createProductButton"
+          disabled={errors.length > 0}>
             Create Product
           </button>
         </div>
