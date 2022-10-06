@@ -10,6 +10,7 @@ import ProductDetail from "./components/Product/ProductDetail"
 import ProductsPage from "./components/Product/ProductPage"
 import ReviewsByUser from './components/Review/ReviewsByUser';
 import FooterBottom from './components/Footer';
+import FourOFour from './components/FourOFour';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -44,6 +45,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/' exact={true} >
         <ProductsPage />
+        </Route>
+        <Route>
+          <FourOFour />
         </Route>
       </Switch>
       <FooterBottom loaded={loaded}/>
