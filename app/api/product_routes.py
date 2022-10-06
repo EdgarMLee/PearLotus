@@ -45,7 +45,7 @@ def create_product():
     form = ProductForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     categories = Category.query.all()
-    form.category.choices=[(category.to_category(), category.to_categoryname() )for category in categories]
+    form.category.choices=[(category.to_category(), category.to_categoryname())for category in categories]
     if form.validate_on_submit():
         new_product = Product(
             owner_id=current_user.id,
@@ -60,7 +60,6 @@ def create_product():
         return jsonify(new_product.to_dict()), 200
     else:
         return {"errors": validation_errors_to_error_messages(form.errors)}, 401
-
 
 # Edit Product
 @product_routes.route("/<int:product_id>", methods=["PUT"])
