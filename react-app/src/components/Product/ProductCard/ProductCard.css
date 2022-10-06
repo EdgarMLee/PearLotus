@@ -46,6 +46,8 @@
   max-height: 15px;
   margin-left: 4%;
   margin-right: 4%;
+  max-width: 300px;
+  word-wrap: break-word;
   /* border: 1px red solid; */
 }
 

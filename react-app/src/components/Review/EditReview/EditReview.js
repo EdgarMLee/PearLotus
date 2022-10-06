@@ -58,7 +58,7 @@ const EditReview = ({ review, closeModal }) => {
           <div className="inputItem">
             <textarea
               className="review-descript"
-              placeholder="Description"
+              placeholder="Description 1-255 characters"
               value={description}
               onChange={(e) => {
                 const textValue = e.target.value;
@@ -75,7 +75,7 @@ const EditReview = ({ review, closeModal }) => {
             <input
               type="number"
               placeholder="Rate from 1-5 Stars"
-              min="0"
+              min="1"
               max="5"
               className="userStar"
               value={stars}
