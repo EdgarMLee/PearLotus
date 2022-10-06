@@ -85,6 +85,8 @@ function CreateProductForm({ closeModal }) {
               value={price}
               className="priceInput"
               placeholder="Price"
+              min="1"
+              max="500"
               onChange={(e) => setPrice(e.target.value)}
               required
             />

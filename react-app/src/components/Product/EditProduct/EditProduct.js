@@ -73,8 +73,7 @@ function ProductEditForm({ closeModal }) {
           <form onSubmit={handleSubmit} className="editForm">
             <div className="editProductBox">
               <div className="editProductTitle">Update Your Product</div>
-              {
-                errors.map((error, ind) => (
+              {errors.map((error, ind) => (
                   // if (error.split(":")[0] === 'Name')
                   <div className="editErrors">
                     <div key={ind} className="editError">
@@ -100,8 +99,8 @@ function ProductEditForm({ closeModal }) {
                     value={price}
                     className="priceInput"
                     placeholder="Price"
-                    min="1"
-                    max="500"
+                    min={1}
+                    max={500}
                     onChange={(e) => setPrice(e.target.value)}
                     required
                   />
