@@ -40,15 +40,13 @@ const EditReview = ({ review, closeModal }) => {
     setErrors(errors);
   }, [stars, description]);
 
-  console.log("errors", errors)
+  // console.log("errors", errors)
   return (
     <div className="editReviewBox">
       <form onSubmit={handleSubmit} className="review-form">
         <div className="input-container">
           <div className="editreview-title">Edit Review</div>
-          {/* TODO: FIX ERROR HANDLERS TO BE VISIBLE HERE */}
-          {
-            Object.values(errors).map((error, idx) => (
+          {Object.values(errors).map((error, idx) => (
               <div className="reviewErrors">
                 <div key={idx} className="reviewError">
                   {error.split(": ")[1]}
