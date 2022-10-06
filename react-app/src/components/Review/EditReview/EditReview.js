@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import * as reviewActions from "../../../store/review";
+import { getProductByid } from "../../../store/product";
 import "./EditReview.css";
 
 const EditReview = ({ review, closeModal }) => {
@@ -10,6 +12,7 @@ const EditReview = ({ review, closeModal }) => {
   const [description, setDescription] = useState(review?.description);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState([]);
+  const { productId } = useParams();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,6 +32,7 @@ const EditReview = ({ review, closeModal }) => {
       setStars("");
       closeModal();
     }
+    dispatch(getProductByid(productId));
   };
 
   useEffect(() => {
