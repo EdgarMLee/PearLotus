@@ -81,7 +81,7 @@ function CreateProductForm({ closeModal }) {
           </div>
           <div className="inputInfo">
             <input
-              type="integer"
+              type="number"
               value={price}
               className="priceInput"
               placeholder="Price"

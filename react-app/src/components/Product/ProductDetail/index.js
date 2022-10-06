@@ -23,6 +23,7 @@ function ProductDetail() {
   useEffect(() => {
     dispatch(getProductByid(productId)).then(() => setIsLoaded(true));
     dispatch(getReviews())
+    document.documentElement.scrollTop = 0;
   }, []);
 
   const handleDelete = async (e) => {

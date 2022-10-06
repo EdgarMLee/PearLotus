@@ -95,12 +95,12 @@ function ProductEditForm({ closeModal }) {
                 </div>
                 <div className="inputInfo">
                   <input
-                    type="integer"
+                    type="number"
                     value={price}
                     className="priceInput"
                     placeholder="Price"
-                    min={1}
-                    max={500}
+                    min="1"
+                    max="500"
                     onChange={(e) => setPrice(e.target.value)}
                     required
                   />
