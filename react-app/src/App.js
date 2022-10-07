@@ -50,7 +50,7 @@ function App() {
           <FourOFour />
         </Route>
       </Switch>
-      <FooterBottom loaded={loaded}/>
+      {/* <FooterBottom loaded={loaded}/> */}
     </BrowserRouter>
   );
 }

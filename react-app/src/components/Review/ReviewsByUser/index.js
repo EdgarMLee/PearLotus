@@ -6,6 +6,7 @@ import { AllUserReviews, getReviews } from "../../../store/review";
 import ReviewCard from "../ReviewCard";
 import * as reviewActions from "../../../store/review";
 import "./ReviewsByUser.css";
+import FooterBottom from "../../Footer";
 
 const ReviewsByUser = () => {
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ const ReviewsByUser = () => {
           <img className='empty-rimage' src={"https://static.vecteezy.com/system/resources/previews/006/083/297/original/set-of-different-cosmetics-organic-cosmetics-and-makeup-items-in-bottles-tubes-and-jars-body-hair-and-skin-care-products-hand-drawn-cartoon-illustration-isolated-on-white-background-vector.jpg"}/>
         </div>
       )}
+      <FooterBottom/>
     </>
   );
 };
