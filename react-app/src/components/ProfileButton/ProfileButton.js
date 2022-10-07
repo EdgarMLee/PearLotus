@@ -11,17 +11,13 @@ import "./ProfileButton.css";
 import { Modal } from "../../context/Modal";
 import LoginForm from "../../components/auth/LoginFormModal/LoginForm";
 import SignUpForm from "../../components/auth/SignupFormModal/SignUpForm";
-// import "./LoginForm.css";
 
 function ProfileButton() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
   const sessionUser = useSelector((state) => state.session.user);
-  // let currentUser;
-  // if (sessionUser) {
-  //   currentUser = true;
-  // } else currentUser = false;
+
 
   const [showModal, setShowModal] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
@@ -54,7 +50,7 @@ function ProfileButton() {
     dispatch(sessionActions.logout());
     history.push("/");
   };
-  // console.log("showModal******", showModal);
+
   return (
     <>
       <div className="fixes profilebutton by existing">

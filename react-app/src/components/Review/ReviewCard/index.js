@@ -2,15 +2,12 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
-// import EditReviewModal from "../EditReview/EditReview";
 import { deleteReviewById, getReviews } from "../../../store/review";
 import { allReviewsArray } from "../../../store/review";
 import { Modal } from "../../../context/Modal";
 import EditReview from "../EditReview/EditReview";
+import * as defaultIcon from "./defaulticon.png"
 import "./ReviewCard.css";
-// import DisplayStars from "../DisplayStars";
-// import defaultImage from "../../../imgs/notyelpDefault.png";
-// import FooterAbout from "../../FooterLinks/Footer";
 
 function ReviewCard({ review, product }) {
   const allReviews = useSelector((state) => state.reviews);
@@ -33,18 +30,11 @@ function ReviewCard({ review, product }) {
   return (
     <>
       <div className="review-card">
-        {/* <div>{product.avg_rating}</div> */}
         <div className="review-user-container flex">
-          {/* <div className="review-user-image">
-            <img
-              className="review-user-image"
-              src={review?.user.profile_image}
-              onError={(e) => e.target.src = defaultImage} />
-          </div> */}
           <div className="review-user-info">
             <div className="username-date">
             <div className="review-profileimg">
-              <img className="user-profileimg" src={review?.user.profileimg ? review.user.profileimg : "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png"}/>
+              <img className="user-profileimg" src={review?.user.profileimg ? review.user.profileimg : "https://res.cloudinary.com/dv3qturtv/image/upload/v1665183325/defaulticon.png"}/>
               <div className="review-username">{review?.user?.username}</div>
               </div>
               <div className="review-user-date">

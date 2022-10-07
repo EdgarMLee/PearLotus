@@ -1,10 +1,9 @@
 from app.models import db, User
 
-
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password', profileimg="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png")
+        username='Demo', email='demo@aa.io', password='password', profileimg="https://res.cloudinary.com/dv3qturtv/image/upload/v1665183325/defaulticon.png")
     keshi = User(
         username='keshi', email='keshi@aa.io', password='password', profileimg="https://sterling-sound.com/wp-content/uploads/keshi.jpg")
     dpr = User(

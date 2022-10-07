@@ -19,8 +19,7 @@ function ProductDetail() {
   const product = useSelector((state) => state.products[productId]);
   const reviews = useSelector((state) => state.reviews);
   const [isLoaded, setIsLoaded] = useState(false);
-  // const image = product?.image
-  // const [image, setImage] = useState()
+  
   useEffect(() => {
     dispatch(getProductByid(productId)).then(() => setIsLoaded(true));
     dispatch(getReviews())
