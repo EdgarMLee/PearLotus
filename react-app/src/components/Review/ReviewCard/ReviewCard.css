@@ -13,18 +13,34 @@
   /* border: 1px solid red; */
 }
 
+.user-profileimg {
+  border-radius: 23px;
+  width: 45px;
+  height: 45px;
+}
+
 .review-username {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   font-weight: bold;
   color: rgb(255, 105, 88);
+  margin-top: 4%;
+  margin-left: 4%;
+  /* border: 1px solid red; */
+}
+
+.review-profileimg {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 300px;
   /* border: 1px solid red; */
 }
 
 .review-user-date {
   font-size: 14px;
   margin-left: 5%;
-  margin-top: 0.4%;
+  margin-top: 3.2%;
   margin-right: 5%;
   /* border: 1px solid red; */
 }

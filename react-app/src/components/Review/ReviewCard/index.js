@@ -43,7 +43,10 @@ function ReviewCard({ review, product }) {
           </div> */}
           <div className="review-user-info">
             <div className="username-date">
+            <div className="review-profileimg">
+              <img className="user-profileimg" src={review?.user.profileimg ? review.user.profileimg : "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png"}/>
               <div className="review-username">{review?.user?.username}</div>
+              </div>
               <div className="review-user-date">
                 {new Date(review?.created_at).toLocaleDateString()}
               </div>

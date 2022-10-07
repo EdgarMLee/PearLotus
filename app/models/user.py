@@ -10,7 +10,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    # profileimg = db.Column(db.String(255), nullable=True)
+    profileimg = db.Column(db.String(255), nullable=True)
 
     reviews = db.relationship("Review", back_populates="user", cascade="all, delete")
     product = db.relationship("Product", back_populates="user", cascade="all, delete")
@@ -33,5 +33,6 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            "profileimg": self.profileimg
         }
