@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getProduct } from "../../../store/product";
 import ProductCard from "../ProductCard/index"
+import FooterBottom from "../../Footer";
 import "./ProductPage.css"
 
 function ProductPage() {
@@ -17,6 +18,7 @@ function ProductPage() {
 
   return (
     isLoaded && (
+      <>
       <div className="page-container">
         <div className="splash-container">
           {products.map((product) => (
@@ -25,6 +27,8 @@ function ProductPage() {
         </div>
         <div className="divLinesplash"/>
       </div>
+      <FooterBottom/>
+      </>
     )
   )
 }

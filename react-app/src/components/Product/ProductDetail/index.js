@@ -6,6 +6,7 @@ import EditProductModal from "../EditProduct";
 import CreateReviewModal from "../../Review/CreateReview";
 import ReviewCard from "../../Review/ReviewCard";
 import { allReviewsArray, getReviews } from "../../../store/review";
+import FooterBottom from "../../Footer";
 import "./ProductDetail.css";
 
 function ProductDetail() {
@@ -53,6 +54,7 @@ if (!product) return null;
 
 return (
     isLoaded && product && (
+      <>
       <div className="productdetail-container">
         <div className="img-and-description">
           <div className="prod-detailpic">
@@ -115,6 +117,8 @@ return (
           </div>
         </div>
       </div>
+      <FooterBottom/>
+      </>
     )
   );
 }
