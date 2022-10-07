@@ -9,7 +9,7 @@ def seed_users():
     dpr = User(
         username='DPR Live', email='dprl@aa.io', password='password', profileimg="https://koreajoongangdaily.joins.com/jmnet/koreajoongangdaily/_data/photo/2018/03/02213214.jpg")
     jay = User(
-        username='Jay Park', email='jaypk@aa.io', password='password', profileimg="https://img.i-scmp.com/cdn-cgi/image/fit=contain,width=425,format=auto/sites/default/files/styles/768x768/public/d8/images/methode/2020/08/14/13784018-dcfd-11ea-b1d3-42d340dc91a3_image_hires_150817.jpeg")
+        username='Jay Park', email='jaypk@aa.io', password='password', profileimg="https://static.wikia.nocookie.net/kpop/images/2/26/Jay_Park_Ganadara_promo_photo.png")
     jack = User(
         username='Jackson Wang', email='jackw@aa.io', password='password', profileimg="https://i.mydramalist.com/0nYx4_5f.jpg")
     jimin = User(
