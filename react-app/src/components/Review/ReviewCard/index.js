@@ -6,7 +6,6 @@ import { deleteReviewById, getReviews } from "../../../store/review";
 import { allReviewsArray } from "../../../store/review";
 import { Modal } from "../../../context/Modal";
 import EditReview from "../EditReview/EditReview";
-import * as defaultIcon from "./defaulticon.png"
 import "./ReviewCard.css";
 
 function ReviewCard({ review, product }) {
