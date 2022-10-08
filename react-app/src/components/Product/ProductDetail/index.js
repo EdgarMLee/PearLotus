@@ -19,7 +19,7 @@ function ProductDetail() {
   const product = useSelector((state) => state.products[productId]);
   const reviews = useSelector((state) => state.reviews);
   const [isLoaded, setIsLoaded] = useState(false);
-  
+
   useEffect(() => {
     dispatch(getProductByid(productId)).then(() => setIsLoaded(true));
     dispatch(getReviews())
@@ -98,7 +98,7 @@ return (
           <div className="fa-solid fa-star product-star"/>
             </div>
             <div className="avg-rating">
-              {product?.avg_rating}
+              {product?.avg_rating.toFixed(2)}
               </div>
             {product?.review_ids.length == 1 ? (
             <div className="review-length"> · {product?.review_ids.length} review</div>

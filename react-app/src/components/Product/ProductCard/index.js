@@ -44,7 +44,7 @@ function ProductCard({ product }) {
         <div className="bottomBox">
           <div className="title-avgrating">
         <div className="titleText">𝗣𝗘𝗔𝗥 & 𝗟𝗢𝗧𝗨𝗦 𝗖𝗢𝗟𝗟𝗘𝗖𝗧𝗜𝗢𝗡</div>
-        <div className="product-avg-rating">{product.avg_rating}
+        <div className="product-avg-rating">{product.avg_rating.toFixed(2)}
         </div>
         <div className="fa-solid fa-star"/>
           </div>
