@@ -122,6 +122,30 @@ def seed_reviews():
     Review(
       userId=10, productId=40, stars=2, description="After using this product I have to celebrate because of how amazing this toner is!"
     ),
+    Review(
+      userId=4, productId=1, stars=5, description="Perfect for when I make the MV for SUMMERIDE"
+    ),
+    Review(
+      userId=5, productId=1, stars=5, description="100 different products, but this one makes me say pretty please:)"
+    ),
+    Review(
+      userId=7, productId=2, stars=5, description="This glass skin serum is fire, pretty dope!:)"
+    ),
+    Review(
+      userId=3, productId=2, stars=5, description="This is so good, DPR we gang gang!"
+    ),
+    Review(
+      userId=11, productId=3, stars=5, description="This glass kit making me feel like pink venom:)"
+    ),
+    Review(
+      userId=8, productId=3, stars=3, description="This glass skin kit was okay-ish"
+    ),
+    Review(
+      userId=2, productId=4, stars=3, description="Not bad, but I don't like how the ginger smell feels on my skin tbh"
+    ),
+    Review(
+      userId=4, productId=4, stars=5, description="This oil cleanser is gona make me stay Sexy4Eva:)"
+    ),
   ]
 
   for review in reviews:
