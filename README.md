@@ -1,5 +1,5 @@
 # Welcome to Pear & Lotus
-Clone of Peach & Lily skincare website
+Clone of Peach & Lily skincare website, designed to provide customers with the best Korean skincare products and have better gleaming/radiant skin!
 
 ## This project was developed utilizing:
 
