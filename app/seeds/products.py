@@ -1,6 +1,6 @@
 from app.models import db, Product
 
-def seed_products():
+def seed_products(): 
   products=[
     Product(
       owner_id=1, name="Peptide Pro Firming Moisturizer", category="Worry Free", price=43, shortdescript="A next-gen proven wrinkle cream for all ages.", description='Have it all with Peptide Pro Firming Moisturizer: visibly reverse lines and wrinkles, deeply hydrate, and restore your skin barrier. Firming ingredients can deliver more visible results when skin is also hydrated and the skin barrier is healthy. We crafted a next-generation wrinkle cream that includes a hydrating moisturizer and skin barrier repair cream in the formula – to supercharge your results. We challenged the notion of thicker, traditional wrinkle creams for more mature skin only. Collagen production starts to decline in your twenties, so we firmly (pun intended!) wanted this wrinkle cream to be for all ages. Lightweight enough for all ages and all skin types, potent enough for more intensive and deeply etched wrinkles and loss of firmness.'
