@@ -117,7 +117,6 @@ function ProductEditForm({ closeModal }) {
                     required
                   >
                     {categories?.map((category) => {
-                      // console.log("!!!!!!!!", categories);
                       return (
                         <option
                           value={category.name}

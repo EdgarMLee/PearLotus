@@ -12,9 +12,9 @@ class Product(db.Model):
   description = db.Column("description", db.String, nullable=False)
   owner_id = db.Column("owner_id", db.Integer, db.ForeignKey("users.id"))
 
+
   created_at = db.Column("created_at", db.DateTime, default=func.now())
   updated_at = db.Column("updated_at", db.DateTime, default=func.now(), onupdate=func.now())
-
 
   user = db.relationship('User', back_populates='product', foreign_keys=[owner_id])
   reviews = db.relationship("Review", back_populates="product", cascade="all, delete")
@@ -37,5 +37,5 @@ class Product(db.Model):
       # "image_ids": [image.id for image in self.images],
       # "cart_ids": [cart.id for cart in self.cart],
       "avg_rating": (sum([review.stars for review in self.reviews]) / len(self.reviews)) if len(self.reviews) > 0 else 0
-      
+
     }

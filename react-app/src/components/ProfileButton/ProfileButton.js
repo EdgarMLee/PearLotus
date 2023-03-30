@@ -17,8 +17,6 @@ function ProfileButton() {
   const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
   const sessionUser = useSelector((state) => state.session.user);
-
-
   const [showModal, setShowModal] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
   const closeModal = () => {

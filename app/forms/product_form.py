@@ -9,8 +9,7 @@ class ProductForm(FlaskForm):
   price = FloatField("price", validators=[DataRequired(), NumberRange(1,500)])
   shortdescript = StringField("shortdescript", validators=[DataRequired()])
   description = StringField("description", validators=[DataRequired()])
+  submit = SubmitField("submit")
   # image = StringField("image", validators=[URL(), Optional()])
-
   # createdAt = DateTimeField("createdAt", validators=[DataRequired()])
   # updatedAt = DateTimeField("updatedAt", validators=[DataRequired()])
-  submit = SubmitField("submit")
