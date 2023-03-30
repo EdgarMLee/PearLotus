@@ -2,7 +2,7 @@ from app.models import db, Image
 
 def seed_images():
   images=[
-    Image(
+    Image( 
       userId=1, productId=1, url="https://cdn.shopify.com/s/files/1/0791/2083/products/PDP_Peptide_Pro_Firming_Moisturizer_alt03.jpg"
     ),
     Image(
