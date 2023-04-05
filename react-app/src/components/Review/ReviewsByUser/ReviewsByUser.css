@@ -39,9 +39,10 @@
   cursor: pointer;
 }
 
-/* .myreviews-card:hover {
-
-} */
+.myreviews-card:hover {
+  background-color: rgb(240, 240, 240);
+  transition: all 1.5s;
+}
 
 .empty-reviews {
   display: flex;
