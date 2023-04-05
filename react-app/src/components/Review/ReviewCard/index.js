@@ -25,7 +25,15 @@ function ReviewCard({ review, product }) {
     e.preventDefault();
     await dispatch(deleteReviewById(id, review.productId));
   };
-  // console.log("review!!!!", review)
+
+  function starsCt(stars) {
+    const arr = []
+    for (let i = 0; i<stars; i++) {
+      arr.push(<div className="fa-solid fa-star" />)
+    }
+    return arr;
+  }
+
   return (
     <>
       <div className="review-card">
@@ -45,8 +53,7 @@ function ReviewCard({ review, product }) {
         <div className="review-card-content">
           <div className="review-card-user-date">
             <div className="review-stars">
-              <div className="stars-rating">{review?.stars}</div>
-              <div className="fa-solid fa-star" />
+              {starsCt(review?.stars)}
             </div>
           </div>
           <div className="review-text">{review?.description}</div>
