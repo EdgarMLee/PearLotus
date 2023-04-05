@@ -13,6 +13,12 @@ const ReviewsByUser = () => {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
   const reviews = useSelector((state) => Object.values(state.reviews));
+  const products = useSelector((state) => Object.values(state.products));
+
+  function redirectProduct(productId) {
+    history.push(`/products/${productId}`)
+  }
+
   const userReviews = reviews.filter(
     (review) => review.userId === sessionUser.id
   );
@@ -21,7 +27,6 @@ const ReviewsByUser = () => {
     dispatch(AllUserReviews());
   }, [dispatch]);
 
-  console.log("allReviews!!!!!!!", reviews);
   return (
     <>
       {userReviews.length > 0 ? (
@@ -31,7 +36,9 @@ const ReviewsByUser = () => {
           <div className="empty-height">
           <div className="MyReviews">
             {userReviews.map((review, i) => (
-              <div className="myreviews-card">
+              <div className="myreviews-card"
+              onClick={() => {redirectProduct(review?.productId)}}>
+                {/* {review?.product?.name} */}
                 <ReviewCard review={review} />
               </div>
             ))}

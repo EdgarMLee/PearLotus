@@ -10,13 +10,15 @@ import "./ReviewCard.css";
 
 function ReviewCard({ review, product }) {
   const allReviews = useSelector((state) => state.reviews);
-  const { reviewId } = useParams();
+  const { productId } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
+
   const closeModal = () => {
     setShowModal(false);
   };
+
   useEffect(() => {
     dispatch(getReviews());
   }, [dispatch]);
@@ -28,9 +30,7 @@ function ReviewCard({ review, product }) {
 
   function starsCt(stars) {
     const arr = []
-    for (let i = 0; i<stars; i++) {
-      arr.push(<div className="fa-solid fa-star" />)
-    }
+    for (let i = 0; i<stars; i++) arr.push(<div className="fa-solid fa-star" />)
     return arr;
   }
 
@@ -42,6 +42,7 @@ function ReviewCard({ review, product }) {
             <div className="username-date">
             <div className="review-profileimg">
               <img className="user-profileimg" src={review?.user.profileimg ? review.user.profileimg : "https://res.cloudinary.com/dv3qturtv/image/upload/v1665183325/defaulticon.png"}/>
+              {/* Find way to redirect to product url path */}
               <div className="review-username">{review?.user?.username}</div>
               </div>
               <div className="review-user-date">
