@@ -36,7 +36,12 @@
   width: 400px;
   margin-bottom: 2.5%;
   margin-left: 2%;
+  cursor: pointer;
 }
+
+/* .myreviews-card:hover {
+
+} */
 
 .empty-reviews {
   display: flex;
