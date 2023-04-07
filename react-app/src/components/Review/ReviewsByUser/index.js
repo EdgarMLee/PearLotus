@@ -41,8 +41,7 @@ const ReviewsByUser = () => {
             {userReviews.map((review) => (
               <div className="myreviews-card"
               onClick={() => {redirectProduct(review?.productId)}}>
-                {/* Try to have product name populate on box */}
-                <div>{review.product}</div>
+                <div className="reviewProductName">{review.product}</div>
                 <ReviewCard review={review} />
               </div>
             ))}

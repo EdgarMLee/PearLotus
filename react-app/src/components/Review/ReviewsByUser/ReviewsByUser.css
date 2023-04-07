@@ -22,7 +22,6 @@
   font-weight: bold;
   width: 120px;
   margin-left: 47%;
-  /* border: 1px solid red; */
 }
 
 .ReviewsTitle:hover,
@@ -31,7 +30,7 @@
 }
 
 .myreviews-card {
-  border: 1px solid rgba(225, 225, 225);
+  border: 1px solid rgb(255, 166, 154);
   border-radius: 8px;
   width: 400px;
   margin-bottom: 2.5%;
@@ -61,4 +60,18 @@
   height: 670px;
   width: 1500px;
   margin-left: 12%;
+}
+
+.reviewProductName {
+  text-decoration: none;
+  color: black;
+  font-family: "UntitledSans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  margin-left: 15%;
+  margin-top: 5%;
+  word-wrap: break-word;
+  width: 270px;
 }
