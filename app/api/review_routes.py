@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from app.models import db, Review
+from app.models import db, Review, Product
 from ..forms.review_form import ReviewForm
 from flask_login import current_user, login_required
 from .auth_routes import validation_errors_to_error_messages
@@ -10,7 +10,13 @@ review_routes = Blueprint("reviews", __name__, url_prefix="/reviews")
 @review_routes.route('/')
 def all_reviews():
     reviews = Review.query.all()
-    return { "reviews": [review.to_dict() for review in reviews] }
+    review_detail = []
+    for review in reviews:
+        per_review = review.to_dict()
+        product = Product.query.get(review.productId)
+        per_review["product"] = product.to_dict()["name"]
+        review_detail.append(per_review)
+    return {"reviews": (review_detail)}
 
 #Get Review by ID
 @review_routes.route('/<int:id>')
@@ -23,7 +29,13 @@ def get_single(id):
 @login_required
 def get_current():
     reviews = Review.query.filter(Review.userId == current_user.id).all()
-    return { "reviews": [review.to_dict() for review in reviews] }
+    review_detail = []
+    for review in reviews:
+        per_review = review.to_dict()
+        product = Product.query.get(review.productId)
+        per_review["product"] = product.to_dict()["name"]
+        review_detail.append(per_review)
+    return {"reviews": (review_detail)}
 
 #Create Review
 @review_routes.route('', methods=['POST'])

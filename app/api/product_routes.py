@@ -15,7 +15,6 @@ def all_products():
         for product in products:
             productId = product.to_dict()["id"]
             image = db.session.query(Image).filter(Image.productId == productId).first()
-            # print('!!!!!!!!!!!!!!', image.to_dict())
             product = product.to_dict()
             if image:
                 product['image'] = image.to_dict()

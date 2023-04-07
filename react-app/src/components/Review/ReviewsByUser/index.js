@@ -14,6 +14,7 @@ const ReviewsByUser = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const reviews = useSelector((state) => Object.values(state.reviews));
   const products = useSelector((state) => Object.values(state.products));
+  const [isLoading, setIsLoading] = useState(false)
 
   function redirectProduct(productId) {
     history.push(`/products/${productId}`)
@@ -21,24 +22,27 @@ const ReviewsByUser = () => {
 
   const userReviews = reviews.filter(
     (review) => review.userId === sessionUser.id
-  );
+    );
+    console.log({userReviews})
 
   useEffect(() => {
-    dispatch(AllUserReviews());
+    const res = dispatch(AllUserReviews());
+    if (res) setIsLoading(true)
   }, [dispatch]);
 
-  return (
+  return isLoading && (
     <>
       {userReviews.length > 0 ? (
         <div className="myreviewsBox">
           <div className="ReviewsTitle">My Reviews</div>
-          <div className="emptyBorder" />
+          <div className="emptyBorder"/>
           <div className="empty-height">
           <div className="MyReviews">
-            {userReviews.map((review, i) => (
+            {userReviews.map((review) => (
               <div className="myreviews-card"
               onClick={() => {redirectProduct(review?.productId)}}>
-                {/* {review?.product?.name} */}
+                {/* Try to have product name populate on box */}
+                <div>{review.product}</div>
                 <ReviewCard review={review} />
               </div>
             ))}
