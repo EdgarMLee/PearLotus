@@ -13,25 +13,35 @@ const ReviewsByUser = () => {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
   const reviews = useSelector((state) => Object.values(state.reviews));
+  const products = useSelector((state) => Object.values(state.products));
+  const [isLoading, setIsLoading] = useState(false)
+
+  function redirectProduct(productId) {
+    history.push(`/products/${productId}`)
+  }
+
   const userReviews = reviews.filter(
     (review) => review.userId === sessionUser.id
-  );
+    );
+    console.log({userReviews})
 
   useEffect(() => {
-    dispatch(AllUserReviews());
+    const res = dispatch(AllUserReviews());
+    if (res) setIsLoading(true)
   }, [dispatch]);
 
-  console.log("allReviews!!!!!!!", reviews);
-  return (
+  return isLoading && (
     <>
       {userReviews.length > 0 ? (
         <div className="myreviewsBox">
           <div className="ReviewsTitle">My Reviews</div>
-          <div className="emptyBorder" />
+          <div className="emptyBorder"/>
           <div className="empty-height">
           <div className="MyReviews">
-            {userReviews.map((review, i) => (
-              <div className="myreviews-card">
+            {userReviews.map((review) => (
+              <div className="myreviews-card"
+              onClick={() => {redirectProduct(review?.productId)}}>
+                <div className="reviewProductName">{review.product}</div>
                 <ReviewCard review={review} />
               </div>
             ))}

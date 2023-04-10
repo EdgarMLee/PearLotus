@@ -10,7 +10,6 @@ function ReviewUser({review}) {
   const dispatch = useDispatch();
   const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
-  // const date = new Date().toLocaleDateString();
 
   let currentUser;
   if (sessionUser && review) {
