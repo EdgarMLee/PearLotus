@@ -99,3 +99,10 @@ def delete_product(product_id):
         )
     else:
         return {"errors": "Unauthorized"}, 401
+
+# Search Product
+@product_routes.route("/search")
+def search_products():
+    query_name = request.args.get("name")
+    products = Product.query.filter(Product.name.ilike(f"%{query_name}%")).all()
+    return {"products": [product.to_dict() for product in products]}
