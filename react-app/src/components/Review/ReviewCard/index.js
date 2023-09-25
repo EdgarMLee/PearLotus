@@ -42,7 +42,6 @@ function ReviewCard({ review, product }) {
             <div className="username-date">
             <div className="review-profileimg">
               <img className="user-profileimg" src={review?.user.profileimg ? review.user.profileimg : "https://res.cloudinary.com/dv3qturtv/image/upload/v1665183325/defaulticon.png"}/>
-              {/* Find way to redirect to product url path */}
               <div className="review-username">{review?.user?.username}</div>
               </div>
               <div className="review-user-date">

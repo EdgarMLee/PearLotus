@@ -14,15 +14,15 @@ function ProductDetail() {
   const { productId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
-  const reviewsObj = useSelector(allReviewsArray)
+  const reviewsObj = useSelector(allReviewsArray);
   const sessionUser = useSelector((state) => state.session.user);
   const product = useSelector((state) => state.products[productId]);
   const reviews = useSelector((state) => state.reviews);
   const [isLoaded, setIsLoaded] = useState(false);
-
+  const [imageError, setImageError] = useState(false);
   useEffect(() => {
     dispatch(getProductByid(productId)).then(() => setIsLoaded(true));
-    dispatch(getReviews())
+    dispatch(getReviews());
     document.documentElement.scrollTop = 0;
   }, []);
 
@@ -49,74 +49,95 @@ function ProductDetail() {
     } else currentUser = false;
   }
 
-if (!product) return null;
+  if (!product) return null;
+  const handleImageError = () => {
+    setImageError(true);
+  };
 
-return (
-    isLoaded && product && (
+  return (
+    isLoaded &&
+    product && (
       <>
-      <div className="productdetail-container">
-        <div className="img-and-description">
-          <div className="prod-detailpic">
-            <img className="prod-detailpic" src={product?.image ? product.image.url : "https://static.vecteezy.com/system/resources/previews/005/331/807/original/skincare-products-nine-icons-vector.jpg"} />
-          </div>
-          <div className="description-buttons">
-          <div className="divider">
-            <div className="product-name">{product?.name}</div>
-            <div className="company-category">
-            <div className="product-company">PEAR & LOTUS COLLECTION</div>
-            <div className="type">Type:</div>
-            <div className="product-category">{product?.category}!</div>
+        <div className="productdetail-container">
+          <div className="img-and-description">
+            <div className="prod-detailpic">
+              <img
+                className="prod-detailpic"
+                src={
+                  imageError
+                    ? "https://static.vecteezy.com/system/resources/previews/005/481/723/original/set-of-natural-organic-cosmetic-products-in-bottle-jar-tube-for-skincare-basic-female-beauty-skin-care-cartoon-illustration-isolated-on-white-background-vector.jpg"
+                    : product?.image?.url
+                }
+                onError={handleImageError} // Handle image loading errors
+                alt={product.name} // Add alt text for accessibility
+              />
             </div>
-            <div className="products-price">${product?.price}</div>
-            <div className="divLineDetail"/>
-            <div className="product-short">{product?.shortdescript}</div>
-            <div className="product-description">{product?.description}</div>
-          </div>
-        {currentUser && (
-          <div className="EditDeleteBusiness flex">
-            <EditProductModal key={productId} />
-            <button onClick={handleDelete} className="deleteButton">
-              Delete Product
-            </button>
-          </div>
-        )}
-        </div>
-        </div>
-        <div className="divLineProduct"/>
-        <div className="review-prod-Box">
-        <div className="createReview">
-          {sessionUser &&
-          sessionUser.id !== product?.owner_id &&
-          reviewed() === false && (
-            <CreateReviewModal productId={productId} />
-          )}
-        </div>
-        <div className="reviews-inner-container">
-          <div className="title-count">
-        <div className="reviewTitle">Reviews</div>
-        <div className="reviewCount">
-          <div className="fa-solid fa-star product-star"/>
-            </div>
-            <div className="avg-rating">
-              {product?.avg_rating.toFixed(2)}
+            <div className="description-buttons">
+              <div className="divider">
+                <div className="product-name">{product?.name}</div>
+                <div className="company-category">
+                  <div className="product-company">PEAR & LOTUS COLLECTION</div>
+                  <div className="type">Type:</div>
+                  <div className="product-category">{product?.category}!</div>
+                </div>
+                <div className="products-price">${product?.price}</div>
+                <div className="divLineDetail" />
+                <div className="product-short">{product?.shortdescript}</div>
+                <div className="product-description">
+                  {product?.description}
+                </div>
               </div>
-            {product?.review_ids.length == 1 ? (
-            <div className="review-length"> · {product?.review_ids.length} review</div>
-            ) : (
-              <div className="review-length"> · {product?.review_ids.length} reviews</div>
+              {currentUser && (
+                <div className="EditDeleteBusiness flex">
+                  <EditProductModal key={productId} />
+                  <button onClick={handleDelete} className="deleteButton">
+                    Delete Product
+                  </button>
+                </div>
               )}
+            </div>
+          </div>
+          <div className="divLineProduct" />
+          <div className="review-prod-Box">
+            <div className="createReview">
+              {sessionUser &&
+                sessionUser.id !== product?.owner_id &&
+                reviewed() === false && (
+                  <CreateReviewModal productId={productId} />
+                )}
+            </div>
+            <div className="reviews-inner-container">
+              <div className="title-count">
+                <div className="reviewTitle">Reviews</div>
+                <div className="reviewCount">
+                  <div className="fa-solid fa-star product-star" />
+                </div>
+                <div className="avg-rating">
+                  {product?.avg_rating.toFixed(2)}
+                </div>
+                {product?.review_ids.length == 1 ? (
+                  <div className="review-length">
+                    {" "}
+                    · {product?.review_ids.length} review
+                  </div>
+                ) : (
+                  <div className="review-length">
+                    {" "}
+                    · {product?.review_ids.length} reviews
+                  </div>
+                )}
               </div>
-          {product?.review_ids.length ? (
-            product?.review_ids.map((reviewId) => (
-              <ReviewCard key={reviewId} review={reviews[reviewId]} />
-              ))
+              {product?.review_ids.length ? (
+                product?.review_ids.map((reviewId) => (
+                  <ReviewCard key={reviewId} review={reviews[reviewId]} />
+                ))
               ) : (
                 <div className="empty-review">No reviews. Yet...</div>
-                )}
+              )}
+            </div>
           </div>
         </div>
-      </div>
-      <FooterBottom/>
+        <FooterBottom />
       </>
     )
   );
