@@ -3,16 +3,15 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import "./ProductCard.css";
+import { Stack } from "@mui/material"
 
 function ProductCard({ product }) {
-  // const { imageId } = useParams
-  // const sessionUser = useSelector(state => state.session.user);
-  // const image = useSelector(state => state.images[imageId])
   const [imageError, setImageError] = useState(false);
   const history = useHistory();
   function redirectProduct(productId) {
     history.push(`/products/${productId}`);
   }
+
   const handleImageError = () => {
     setImageError(true);
   };
